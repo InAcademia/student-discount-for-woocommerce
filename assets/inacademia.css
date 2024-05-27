@@ -1,0 +1,57 @@
+div div a.inacademia img.inacademia {
+    vertical-align: middle;
+    display: inline-block;
+    height: 1.5em;
+}
+
+div div a.inacademia, div div a.inacademia:hover {
+  display: inline-block;
+  padding: 5px;
+  text-decoration: none !important;
+  font-size: x-large;
+  color: #606060;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 12px;
+  transition: none;
+}
+
+
+/* Button font weight */
+div a.inacademia span {
+  font-weight: bold;
+}
+
+/* PRE Validation */
+/* Button */
+div a.inacademia.validate {
+  background-color: white;
+  border-color: grey;
+}
+
+/* InAcademia */
+div a.inacademia span.pre {
+  color: #f09021;
+}
+
+/* Validate */
+a.inacademia span {
+  color: grey;
+}
+
+/* POST Validation */
+/* Button */
+div a.inacademia.validated {
+  background-color: #22B473;
+  border-color: darkgreen;
+}
+
+/* InAcademia */
+div a.inacademia span.post {
+  color: darkgreen;
+}
+
+/* Validate */
+a.inacademia.validated span {
+  color: white;
+}
