@@ -85,4 +85,4 @@ Dependency phpseclib-3.0.19
 Privacy Policy: [https://inacademia.org/student-discount-for-woocommerce-inacademia-subscription-service-privacy-policy/](https://inacademia.org/student-discount-for-woocommerce-inacademia-subscription-service-privacy-policy/)
 
 Copyright (c) 2023-2024 GÉANT Association on behalf of the GN5-1 project
-[https://gitlab.geant.org/inacademia/wc-inacademia/-/blob/main/COPYRIGHT](https://gitlab.geant.org/inacademia/wc-inacademia/-/blob/main/COPYRIGHT)
+[https://github.com/InAcademia/student-discount-for-woocommerce/blob/main/COPYRIGHT](https://github.com/InAcademia/student-discount-for-woocommerce/blob/main/COPYRIGHT)
