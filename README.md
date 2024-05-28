@@ -1,4 +1,4 @@
-=== Student Discount for WooCommerce ===
+# Student Discount for WooCommerce
 
 Contributors: MP van Es, michellewilliamsgeant
 
@@ -18,7 +18,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Provides access to an online student validation service, using WooCommerce Coupons to apply a defined discount at checkout for qualifying customers.
 
-# wc-inacademia
+## wc-inacademia
 
 Licensed under GPL 3.0 or later.
 
@@ -65,7 +65,7 @@ It's allowable to use either or both, but please be aware that if you check eith
 To access support, please visit [https://inacademia.org/plugin-support/](https://inacademia.org/plugin-support/)
 
 
-== Dependencies ==
+## Dependencies
 
 Dependency openid-connect-php-v0.9.10
 - Version: v0.9.10
