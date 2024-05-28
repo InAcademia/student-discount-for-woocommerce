@@ -1,12 +1,21 @@
 === Student Discount for WooCommerce ===
+
 Contributors: MP van Es, michellewilliamsgeant
+
 Tags: inacademia, student validation, student discount, student, discount, validation, verification, woocommerce, coupon
+
 Requires at least: 6.0
+
 Tested up to: 6.3.3
+
 Stable tag: 4.3
+
 Requires PHP: 8.0
+
 License: GPLv3 or later
+
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+
 Provides access to an online student validation service, using WooCommerce Coupons to apply a defined discount at checkout for qualifying customers.
 
 # wc-inacademia
