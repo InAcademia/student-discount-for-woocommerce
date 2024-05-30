@@ -8,7 +8,7 @@ $button_text = 'Next';
 /**
  * Register our inacademia_settings plugin link
  */
-add_filter( 'plugin_action_links_wc-inacademia-main/wc-inacademia.php', 'inac_settings_link' );
+add_filter( 'plugin_action_links_student-discount-for-woocommerce/wc-inacademia.php', 'inac_settings_link' );
 function inac_settings_link( $links ) {
 	// Build and escape the URL.
 	$url = esc_url( add_query_arg(
