@@ -23,17 +23,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Setup tmate session
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+      # # Setup tmate session
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v3
 
       - name: Create zip file
         run: |
-          zip -r /tmp/student-discount-for-woocommerce.zip student-discount-for-woocommerce -x *\.git* @
+          cd .. && zip -r /tmp/student-discount-for-woocommerce.zip student-discount-for-woocommerce -x *\.git* @
 
       - name: Show what we are shipping
         run: |
-          unzip -t student-discount-for-woocommerce.zip
+          unzip -t /tmp/student-discount-for-woocommerce.zip
 
       - name: Create Artifact
         uses: actions/upload-artifact@v4
