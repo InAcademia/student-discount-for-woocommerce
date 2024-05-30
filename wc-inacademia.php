@@ -95,16 +95,37 @@ function inacademia_wp_loaded() {
   $coupon = new \WC_Coupon( $inacademia_coupon );
   $coupon_id = $coupon->get_id();
   $coupon_excluded_product_ids = $coupon->get_excluded_product_ids();
+  $coupon_product_ids = $coupon->get_product_ids();
 
   // error_log("Coupon id: " . $coupon_id);
   // error_log("excluded_product_ids: " . print_r($coupon_excluded_product_ids, true));
+  // error_log("coupon_product_ids: " . print_r($coupon_product_ids, true));
 
   $items = WC()->cart->get_cart();
 
+  $cart_product_ids = [];
+  // Collect all product_ids in cart
   foreach ( $items as $item => $values ) {
-    $product_id = $values['data']->get_id();
-    if (! in_array($product_id, $coupon_excluded_product_ids)) {
-      $button_allowed = true;
+    $cart_product_ids[] = $values['data']->get_id();
+  }
+
+  // error_log("cart_product_ids: " . print_r($cart_product_ids, true));
+
+  // We first check required products are present
+  if ( sizeof($coupon_product_ids) ) {
+    foreach ( $coupon_product_ids as $coupon_product_id ) {
+      if ( in_array($coupon_product_id, $cart_product_ids ) ) {
+        $button_allowed = true;
+        break;
+      }
+    }
+  // We check if products are excluded
+  } else {
+    foreach ( $cart_product_ids as $cart_product_id ) {
+      if (! in_array($cart_product_id, $coupon_excluded_product_ids ) ) {
+        $button_allowed = true;
+        break;
+      }
     }
   }
 }

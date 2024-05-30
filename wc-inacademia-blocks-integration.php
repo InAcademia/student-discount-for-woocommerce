@@ -30,6 +30,7 @@ class InAcademia_Blocks_Integration implements IntegrationInterface {
 			'img_validated' => $this->img_validated,
 			'coupon' => $this->coupon,
 			'button' => $this->button,
+			'coupon_product_ids' => $this->coupon_product_ids,
 			'excluded_product_ids' => $this->excluded_product_ids,
 		];
 
@@ -43,6 +44,13 @@ class InAcademia_Blocks_Integration implements IntegrationInterface {
 		return $coupon->get_excluded_product_ids();
 	}
 
+	private function coupon_ids($c) {
+		if (!WC()->cart or iS_api()) return false;
+		$coupon = new \WC_Coupon( $c );
+		$coupon_id = $coupon->get_id();
+		return $coupon->get_product_ids();
+	}
+
 	public function initialize() {
 		$options = get_option( 'inacademia_options', array());
 		$this->coupon = @$options['coupon_name'] ?? "";
@@ -50,6 +58,7 @@ class InAcademia_Blocks_Integration implements IntegrationInterface {
 		$this->url = esc_url( inacademia_get_validation_url() );
 		$this->img_validate = plugins_url('assets/mortarboard.svg', __FILE__ );
 		$this->img_validated = plugins_url('assets/mortarboard_white.svg', __FILE__ );
+		$this->coupon_product_ids = $this->coupon_ids( $this->coupon );
 		$this->excluded_product_ids = $this->excluded_ids( $this->coupon );
 
 		$this->register_inacademia_scripts();

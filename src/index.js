@@ -12,13 +12,18 @@ function Stop(e) {
     e.stopPropagation();
 }
 
-function Button({url, coupon, img_validate, img_validated, excluded_product_ids}) {
+function Button({url, coupon, img_validate, img_validated, coupon_product_ids, excluded_product_ids}) {
 	var button = "";
 
 	const isButtonAllowed = useSelect( ( select ) => {
-			return ! select( 'wc/store/cart' )
+			var items = select( 'wc/store/cart' )
 				.getCartData()
-				.items.every( ( i )  => excluded_product_ids.includes(i.id))
+				.items
+			if (coupon_product_ids.length) {
+				return items.some( ( i )  => coupon_product_ids.includes(i.id));
+			} else {
+				return ! items.every( ( i )  => excluded_product_ids.includes(i.id));
+			}
 	} );
 
 	const isCouponPresent = useSelect( ( select ) => {
@@ -64,6 +69,7 @@ const render = () => {
 						coupon={inacademia_data['coupon']}
 						img_validate={inacademia_data['img_validate']}
 						img_validated={inacademia_data['img_validated']}
+						coupon_product_ids={inacademia_data['coupon_product_ids']}
 						excluded_product_ids={inacademia_data['excluded_product_ids']}
 					/>
 				</div>
