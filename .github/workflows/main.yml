@@ -13,7 +13,6 @@ on:
   workflow_dispatch:
 
 jobs:
-
   Client_build:
     name: Client build
 
@@ -41,28 +40,7 @@ jobs:
           name: student-discount-for-woocommerce
           path: /tmp/student-discount-for-woocommerce.zip
 
-
-  Artifact_upload:
-    name: Create release
-    needs:
-      - "Client_build"
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Fetch build
-        id: fetch_artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: student-discount-for-woocommerce
-          path: artifacts/
-
       - name: Create Release
-        if: "github.ref_type=='tag'"
         uses: softprops/action-gh-release@v2
         with:
-          files: "${{steps.fetch_artifact.outputs.download-path}}/*"
-
+          files: /tmp/student-discount-for-woocommerce.zip
