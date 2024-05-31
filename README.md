@@ -4,9 +4,9 @@ Contributors: MP van Es, michellewilliamsgeant
 
 Tags: inacademia, student validation, student discount, student, discount, validation, verification, woocommerce, coupon
 
-Requires at least: 6.0
+Requires at least: 8.4.0
 
-Tested up to: 6.3.3
+Tested up to: 8.9.1
 
 Stable tag: 4.3
 
@@ -16,7 +16,7 @@ License: GPLv3 or later
 
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Provides access to an online student validation service, using WooCommerce Coupons to apply a defined discount at checkout for qualifying customers.
+Provides access to an online student validation service, using WooCommerce Coupons to apply a defined discount at the cart for qualifying customers.
 
 ## wc-inacademia
 
@@ -24,9 +24,9 @@ Licensed under GPL 3.0 or later.
 
 Brands all over the world offer discounts to students as a means of increasing sales, improving conversion rates, attracting new audiences and creating loyalty. The student community has vast spending potential and numerous polls and surveys have found time and time again that students lean toward brands that offer them discounts, and the availability of a discount will influence their decision to buy.
 
-Student Discount for WooCommerce is powered by [InAcademia](https://inacademia.org) and brings you all the advantages of offering discounts to the student community without the challenges. Our simple plugin is the real-time, digital equivalent of asking a student to show you their university or student card. It allows you to instantly validate at the checkout if a customer is a student* without the need for collecting any additional data or waiting for inefficient offline processes such as document verification.
+Student Discount for WooCommerce is powered by [InAcademia](https://inacademia.org) and brings you all the advantages of offering discounts to the student community without the challenges. Our simple plugin is the real-time, digital equivalent of asking a student to show you their university or student card. It allows you to instantly validate at the shopping cart if a customer is a student* without the need for collecting any additional data or waiting for inefficient offline processes such as document verification.
 
-The Student Discount for WooCommerce plugin adds an ‘I’m a Student’ button or notice to your store’s checkout giving your customers the opportunity to demonstrate their student affiliation. Clicking the ‘I’m a Student’ button or notice links to the InAcademia service that sends a secure authentication request to the student’s institutional identity management service, and requests that they login with academic credentials already assigned to them. This returns a simple attribute to assert their academic affiliation. If the attribute released is the ‘student’ affiliation, then the user is validated and a discount can be automatically applied to the shopping cart, based on a pre-configured discount coupon defined by you using standard WooCommerce functionality. This means you can offer meaningful discounts to real students, without having to request and store additional personal data.
+The Student Discount for WooCommerce plugin adds an ‘I’m a Student’ button or notice to your store’s shopping cart giving your customers the opportunity to demonstrate their student affiliation. Clicking the ‘I’m a Student’ button or notice links to the InAcademia service that sends a secure authentication request to the student’s institutional identity management service, and requests that they login with academic credentials already assigned to them. This returns a simple attribute to assert their academic affiliation. If the attribute released is the ‘student’ affiliation, then the user is validated and a discount can be automatically applied to the shopping cart, based on a pre-configured discount coupon defined by you using standard WooCommerce functionality. This means you can offer meaningful discounts to real students, without having to request and store additional personal data.
 
 The whole validation process takes seconds and is based on the trusted [eduGAIN](https://edugain.org) academic federated identity infrastructure.
 
