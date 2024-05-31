@@ -28,7 +28,11 @@ jobs:
 
       - name: Create zip file
         run: |
-          cd .. && zip -r /tmp/student-discount-for-woocommerce.zip student-discount-for-woocommerce -x *\.git* @
+          cd .. && \
+          zip -r /tmp/student-discount-for-woocommerce.zip student-discount-for-woocommerce -x \
+          *\.git* \
+          */vendor/paragonie/random_compat/build-phar.sh \
+          @
 
       - name: Show what we are shipping
         run: |
