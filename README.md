@@ -34,7 +34,7 @@ Student Discount for WooCommerce is free to download and comes with a 14-day fre
 
 *at institutions that have joined an academic identity federation that is a member of the [eduGAIN](https://edugain.org) interfederation.
 
-Co-funded by the European Union
+[Co-funded by the European Union](https://wiki.geant.org/download/attachments/725614690/image-2024-1-8_18-16-12.png?version=1&modificationDate=1715264470941&api=v2)
 
 ## Installation instructions
 
