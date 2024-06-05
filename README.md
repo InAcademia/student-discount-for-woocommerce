@@ -8,7 +8,7 @@ Requires at least: 8.4.0
 
 Tested up to: 8.9.1
 
-Stable tag: 4.3
+Stable tag: 1.0
 
 Requires PHP: 8.0
 
@@ -22,21 +22,24 @@ Provides access to an online student validation service, using WooCommerce Coupo
 
 Licensed under GPL 3.0 or later.
 
-Brands all over the world offer discounts to students as a means of increasing sales, improving conversion rates, attracting new audiences and creating loyalty. The student community has vast spending potential and numerous polls and surveys have found time and time again that students lean toward brands that offer them discounts, and the availability of a discount will influence their decision to buy.
+Brands all over the world offer discounts to students as a strategy to increasing sales, improving conversion rates, attracting new audiences and creating loyalty. The student community has vast spending potential and numerous polls and surveys have found that students lean toward brands that offer them discounts, and the availability of a discount will influence their decision to buy.
 
 Student Discount for WooCommerce is powered by [InAcademia](https://inacademia.org) and brings you all the advantages of offering discounts to the student community without the challenges. Our simple plugin is the real-time, digital equivalent of asking a student to show you their university or student card. It allows you to instantly validate at the shopping cart if a customer is a student* without the need for collecting any additional data or waiting for inefficient offline processes such as document verification.
 
-The Student Discount for WooCommerce plugin adds an ‘I’m a Student’ button or notice to your store’s shopping cart giving your customers the opportunity to demonstrate their student affiliation. Clicking the ‘I’m a Student’ button or notice links to the InAcademia service that sends a secure authentication request to the student’s institutional identity management service, and requests that they login with academic credentials already assigned to them. This returns a simple attribute to assert their academic affiliation. If the attribute released is the ‘student’ affiliation, then the user is validated and a discount can be automatically applied to the shopping cart, based on a pre-configured discount coupon defined by you using standard WooCommerce functionality. This means you can offer meaningful discounts to real students, without having to request and store additional personal data.
+The Student Discount for WooCommerce plugin adds an ‘I’m a Student’ button or notice to your store’s shopping cart, giving your customers the opportunity to demonstrate their student affiliation. Clicking the ‘I’m a Student’ button or notice links to the InAcademia service that sends a secure authentication request to the student’s institutional identity management service, and requests that they log in with academic credentials already assigned to them. This returns a simple attribute to assert their academic affiliation. If the attribute released is the ‘student’ affiliation, then the user is validated and a discount can be automatically applied to the shopping cart, based on a pre-configured discount coupon defined by you using standard WooCommerce functionality. This means you can offer meaningful discounts to real students without having to request and store additional personal data.
 
 The whole validation process takes seconds and is based on the trusted [eduGAIN](https://edugain.org) academic federated identity infrastructure.
 
-Student Discount for WooCommerce is free to download and comes with a 14-day free trial for access to the InAcademia service. Continued use after the trial will require a subscription with InAcademia at a cost of €250 per month which will entitle you to up to 1000 validations per month.
+The Student Discount for WooCommerce plugin is free to download and comes with a 14-day free trial for access to the InAcademia service. Continued use after the trial will require a subscription with InAcademia at a cost of €250 per month which will entitle you to up to 1000 validations per month.
 
-*at institutions that have joined an academic identity federation that is a member of the [eduGAIN](https://edugain.org) interfederation.
+* At institutions that have joined an academic identity federation that is a member of the [eduGAIN](https://edugain.org) interfederation.
 
-[Co-funded by the European Union](https://wiki.geant.org/download/attachments/725614690/image-2024-1-8_18-16-12.png?version=1&modificationDate=1715264470941&api=v2)
+## Funding
 
-## Installation instructions
+![EU-Funded Logo](https://wiki.geant.org/download/attachments/725614690/image-2024-1-8_18-16-12.png?version=1&modificationDate=1715264470941&api=v2)
+**GN5-1 project is funded from the Horizon Europe research and innovation programme under Grant Agreement No. 101100680 (GN5-1)**
+
+## Installation 
 
 Clone this repo in an existing WordPress + WooCommerce installation under ```wp-content/plugins/```
 
@@ -50,6 +53,10 @@ Set up your discount using the Coupon feature offered by the [WooCommerce Market
 
 ### Step two: set up your subscription and make it unique to the plugin in your shop
 
+> ### [InAcademia](https://inacademia.org/) is a GÉANT service
+> * [Contact](https://inacademia.org/plugin-support/)
+> * [Privacy Statement](https://inacademia.org/privacy-statement/)
+
 You will need to visit [https://inacademia.org/shop](https://inacademia.org/shop) to complete your subscription to the InAcademia Service in order to receive a unique client_id and client_secret, and it is necessary to link your subscription with the plugin in two stages before the I'm a Student button will be available for users to interact with. When you install the plugin, a unique redirect_uri is created on the Setting tab. This value must be entered when prompted, when processing your subscription order.
 
 ### Step three: link your subscription to the plugin
@@ -62,8 +69,22 @@ When you have created your discount coupon, linked your redirect_uri to your sub
 
 It's allowable to use either or both, but please be aware that if you check either box, either the 'I'm a Student' button or 'I'm a Student' notice will be enabled on your shopping cart. Ensure that your subscription is complete and active before hitting 'Save Settings'.
 
-To access support, please visit [https://inacademia.org/plugin-support/](https://inacademia.org/plugin-support/)
+## License
 
+This software is licensed under the GPLv3 or later. For more details, see the full [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) license.
+
+## Contact
+
+For more information or support, please visit our [plugin support page](https://inacademia.org/plugin-support/).
+
+## Privacy Policy
+
+The Student Discount for WooCommerce InAcademia subscription service privacy policy is [here](https://inacademia.org/student-discount-for-woocommerce-inacademia-subscription-service-privacy-policy/).
+
+## Copyright
+
+Copyright (c) 2023-2024 GÉANT Association on behalf of the GN5-1 project
+[https://github.com/InAcademia/student-discount-for-woocommerce/blob/main/COPYRIGHT](https://github.com/InAcademia/student-discount-for-woocommerce/blob/main/COPYRIGHT)
 
 ## Dependencies
 
@@ -71,7 +92,7 @@ Dependency openid-connect-php-v0.9.10
 - Version: v0.9.10
 - URL: [https://github.com/jumbojett/openid-connect-php](https://github.com/jumbojett/openid-connect-php)
 - Licence: Apache 2.0
-- Copyright (c) [yar] Jumbojett
+- Copyright MITRE 2020
 
 Dependency paragonie/constant_time_encoding-v2.6.3
 - Version: v2.6.3
@@ -85,13 +106,8 @@ Dependency paragonie/random_compat-v9.99.100
 - Licensed: MIT
 - Copyright 2015 Paragon Initiative Enterprises
 
-Dependency phpseclib-3.0.19
-- Version: 3.0.19
+Dependency phpseclib-3.0.34
+- Version: 3.0.34
 - URL: [https://github.com/phpseclib](https://github.com/phpseclib)
 - Licensed: MIT
 - Copyright 2011-2019 TerraFrost and other contributors
-
-Privacy Policy: [https://inacademia.org/student-discount-for-woocommerce-inacademia-subscription-service-privacy-policy/](https://inacademia.org/student-discount-for-woocommerce-inacademia-subscription-service-privacy-policy/)
-
-Copyright (c) 2023-2024 GÉANT Association on behalf of the GN5-1 project
-[https://github.com/InAcademia/student-discount-for-woocommerce/blob/main/COPYRIGHT](https://github.com/InAcademia/student-discount-for-woocommerce/blob/main/COPYRIGHT)
