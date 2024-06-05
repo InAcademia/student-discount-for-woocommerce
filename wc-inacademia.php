@@ -9,11 +9,11 @@
  *
  * @wordpress-plugin
  * Plugin Name: Student Discount for WooCommerce
- * Plugin URI: https://inacademia.org/
+ * Plugin URI: https://github.com/InAcademia/student-discount-for-woocommerce/
  * Description: Adds InAcademia student validation
- * Version: 4.3
+ * Version: v1.0
  * Author: Martin van Es
- * Author URI: https://inacademia.org/
+ * Author URI: https://geant.org/
  * Text Domain: wc-inacademia-main
  * License: GPLv3 or later
  * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
