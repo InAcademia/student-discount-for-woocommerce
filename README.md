@@ -36,8 +36,8 @@ The Student Discount for WooCommerce plugin is free to download and comes with a
 
 ## Funding
 
-![EU-Funded Logo](https://wiki.geant.org/download/attachments/725614690/image-2024-1-8_18-16-12.png?version=1&modificationDate=1715264470941&api=v2)
-**GN5-1 project is funded from the Horizon Europe research and innovation programme under Grant Agreement No. 101100680 (GN5-1)**
+|![EU-Funded Logo](https://wiki.geant.org/download/attachments/725614690/image-2024-1-8_18-16-12.png)<br>GN5-1 project is funded from the Horizon Europe research and innovation programme under Grant Agreement No. 101100680 (GN5-1)|
+|:-|
 
 ## Installation 
 
@@ -88,8 +88,8 @@ Copyright (c) 2023-2024 GÉANT Association on behalf of the GN5-1 project
 
 ## Dependencies
 
-Dependency openid-connect-php-v0.9.10
-- Version: v0.9.10
+Dependency openid-connect-php-v1.0.0
+- Version: v1.0.0
 - URL: [https://github.com/jumbojett/openid-connect-php](https://github.com/jumbojett/openid-connect-php)
 - Licence: Apache 2.0
 - Copyright MITRE 2020
@@ -106,8 +106,8 @@ Dependency paragonie/random_compat-v9.99.100
 - Licensed: MIT
 - Copyright 2015 Paragon Initiative Enterprises
 
-Dependency phpseclib-3.0.34
-- Version: 3.0.34
+Dependency phpseclib-3.0.37
+- Version: 3.0.37
 - URL: [https://github.com/phpseclib](https://github.com/phpseclib)
 - Licensed: MIT
 - Copyright 2011-2019 TerraFrost and other contributors
