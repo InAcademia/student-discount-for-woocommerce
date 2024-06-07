@@ -308,9 +308,9 @@ function inacademia_clientsecret_cb( $args ) {
 			name="inacademia_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
       value="<?php echo esc_attr($client_secret) ?>">
 	<p class="description">
-		<?php echo esc_html( 'Your client_id and client_secret will be automatically created during the Subscription order process.' ); ?><br>
-		<?php echo esc_html( 'You will find them in the Subscription Details of the \'My Account\' section of your WooCommerce account. Follow the link to manage the subscription inside your confirmation email.' ); ?><br>
-		<?php echo esc_html( 'Please paste them to the boxes above (if you need to change your redirect_uri please contact us). This is mandatory to link your subscription to your plugin, and the plugin will not function correctly without these values.' ); ?>
+		<?php echo 'Your client_id and client_secret will be automatically created during the Subscription order process.'; ?><br>
+		<?php echo 'You will find them in the Subscription Details of the <a href="https://inacademia.org/my-account/subscriptions">Summary of your account</a>. Follow the link to manage the subscription inside your confirmation email.'; ?><br>
+		<?php echo 'Please paste them to the boxes above (if you need to change your redirect_uri please contact us). This is mandatory to link your subscription to your plugin, and the plugin will not function correctly without these values.'; ?>
 	</p>
 	<?php
 }
@@ -438,8 +438,8 @@ function inacademia_options_page() {
 	add_submenu_page(
 		// 'options.php',
 		'options-general.php',
-		'InAcademia',
-		'InAcademia',
+		'Student Discount',
+		'Student Discount',
 		'manage_options',
 		'inacademia',
 		'inacademia_options_page_html'
@@ -506,18 +506,18 @@ function inacademia_options_page_html() {
 function welcome_text() {?>
 	<h2>Important Information</h2>
 	<p>InAcademia is a service that's designed to help businesses validate the elgibility of users that claim discounts, offers or services that are only availble to students.</p>
-  <p>It uses an interfederation called eduGAIN, which will connect to the user's home institution identity management services using our InAcademia button (or notice) to confirm whether the user holds the correct role attribute before providing a positive or negative outcome, or validation.</p>
+  <p>It uses an interfederation called eduGAIN, which will connect to the user's home institution identity management services using our 'I'm a Student' (or notice) to confirm whether the user holds the correct role attribute before providing a positive or negative outcome, or validation.</p>
   <p>This page describes the steps that must be followed when completing the settings for this plugin.</p>
 
   <h2>Step one: configure the discount to be applied</h2>
   <p>Set up your discount using the Coupon feature offered by the <a href="https://woocommerce.com/document/coupon-management/" target=_blank>WooCommerce Marketing feature</a> set and enter it in the box labelled 'Coupon'. If you wish to change the Coupon you will need to overwrite the data with the new Coupon Code in the field labelled 'Coupon'.</p>
 
   <h2>Step two: set up your subscription and make it unique to the plugin in your shop</h2>
-  <p>You will need to visit <a href="https://inacademia.org/shop" target=_blank>https://inacademia.org/shop</a> to complete your subscription to the InAcademia Service in order to receive a unique client_id and client secret, and it is necessary to link your subscription with the plugin in two stages before the InAcademia button will be available for users to interact with.</p>
+  <p>You will need to visit <a href="https://inacademia.org/shop" target=_blank>https://inacademia.org/shop</a> to complete your subscription to the InAcademia Service in order to receive a unique client_id and client secret, and it is necessary to link your subscription with the plugin in two stages before the 'I'm a Student' button will be available for users to interact with.</p>
   <p>When you installed the plugin, a unique redirect_uri was created on the Setting tab. This value must be entered when promted, when processing your subscription order.</p>
 
   <h2>Step three: link your subscription to the plugin</h2>
-	<p>Your client_id and client_secret will be automatically created during the Subscription order process. You will find them in the Subscription Details of the 'My Account' section of your WooCommerce account; they are both vital terms that are required for the proper-functioning of the service and will be transmitted to the InAcademia service with each user's validation request. You must paste them to the correct boxes in the Settings tab.</p>
+	<p>Your client_id and client_secret will be automatically created during the Subscription order process. You will find them in the Subscription Details of the <a href="https://inacademia.org/my-account/subscriptions">Summary of your account</a>; they are both vital terms that are required for the proper-functioning of the service and will be transmitted to the InAcademia service with each user's validation request. You must paste them to the correct boxes in the Settings tab.</p>
 
   <h2>Step four: activate your service</h2>
   <p>When you have created your discount coupon, linked your redirect_uri to your subscription, and linked the client_id and client_secret to the plugin, you will need to decide how you would like to invite users to validate their academic affiliation, either by using a Notice URL or by hitting the 'InAcademia' button.</p>
@@ -529,7 +529,7 @@ function welcome_text() {?>
 function settings_text() {?>
 	<p>Inputting the required data on this page will finalise the configuration of your shop's access to the InAcademia service and will deploy either a button or notice to your checkout, so please follow each step carefully before proceeding to 'Save Settings'. Merchants are strongly advised to test their settings in a WordPress development environment prior to deploying to production.</p>
 	<p></p>
-	<p><b>WARNING:</b> when you connect this plugin to a live checkout flow, users will be able to interact with the InAcademia button or Notice, but it will not function without a valid subscription, so please ensure that your subscription details are kept up to date, and if you intend to stop using the extension, please ensure you remove it before the subscription ends (in accordance with the Terms).</p>
+	<p><b>WARNING:</b> when you connect this plugin to a live checkout flow, users will be able to interact with the 'I'm a Student' button or Notice, but it will not function without a valid subscription, so please ensure that your subscription details are kept up to date, and if you intend to stop using the extension, please ensure you remove it before the subscription ends (in accordance with the Terms).</p>
 	<p>You may not use this plugin without an active subscription, and doing so would breach copyright.</p>
 	<p>Detailed instructions accompanied by screenshots can be found at <a href="https://inacademia.org/student-discount-for-woo-commerce-instructions/" target=_blank>https://inacademia.org/student-discount-for-woo-commerce-instructions/</a></p>
 <?php

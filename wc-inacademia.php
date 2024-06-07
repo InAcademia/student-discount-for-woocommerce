@@ -9,11 +9,11 @@
  *
  * @wordpress-plugin
  * Plugin Name: Student Discount for WooCommerce
- * Plugin URI: https://github.com/InAcademia/student-discount-for-woocommerce/
- * Description: Adds InAcademia student validation
+ * Plugin URI: https://inacademia.org/
+ * Description: Adds student validation by InAcademia
  * Version: v1.0
  * Author: Martin van Es
- * Author URI: https://geant.org/
+ * Author URI: https://inacademia.org/
  * Text Domain: wc-inacademia-main
  * License: GPLv3 or later
  * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
@@ -94,22 +94,30 @@ function inacademia_wp_loaded() {
 
   $coupon = new \WC_Coupon( $inacademia_coupon );
   $coupon_id = $coupon->get_id();
-  $coupon_excluded_product_ids = $coupon->get_excluded_product_ids();
+
   $coupon_product_ids = $coupon->get_product_ids();
+  $coupon_excluded_product_ids = $coupon->get_excluded_product_ids();
+  // $coupon_product_categories = $coupon->get_product_categories();
+  // $coupon_excluded_product_categories = $coupon->get_excluded_product_categories();
 
   // error_log("Coupon id: " . $coupon_id);
-  // error_log("excluded_product_ids: " . print_r($coupon_excluded_product_ids, true));
   // error_log("coupon_product_ids: " . print_r($coupon_product_ids, true));
+  // error_log("excluded_product_ids: " . print_r($coupon_excluded_product_ids, true));
+  // error_log("coupon_product_categories: " . print_r($coupon_product_categories, true));
+  // error_log("$coupon_excluded_product_categories: " . print_r($coupon_excluded_product_categories, true));
 
   $items = WC()->cart->get_cart();
 
-  $cart_product_ids = [];
   // Collect all product_ids in cart
+  $cart_product_ids = [];
+  // $cart_category_ids = [];
   foreach ( $items as $item => $values ) {
     $cart_product_ids[] = $values['data']->get_id();
+    // $cart_category_ids = array_merge($cart_category_ids, $values['data']->get_category_ids());
   }
-
   // error_log("cart_product_ids: " . print_r($cart_product_ids, true));
+  // $cart_category_ids = array_unique($cart_category_ids);
+  // error_log("cart_category_ids: " . print_r($cart_category_ids, true));
 
   // We first check required products are present
   if ( sizeof($coupon_product_ids) ) {
@@ -171,7 +179,7 @@ function inacademia_handle_validation() {
       if (!$applied) {
           WC()->cart->apply_coupon( $inacademia_coupon );
           wc_clear_notices();
-          wc_print_notice( "InAcademia discount applied!", 'notice' );
+          wc_print_notice( "Student discount applied!", 'notice' );
       }
     } else {
       if ( $notification == 'on' ) {
