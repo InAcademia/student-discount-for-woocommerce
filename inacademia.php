@@ -47,7 +47,7 @@ function inacademia_authenticate() {
     }
   } catch (Exception $e) {
     $_SESSION['inacademia_error'] = $e->getMessage();
-    error_log(wp_json_encode($e->getMessage(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    error_log(json_encode($e->getMessage(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
   }
 
   $_SESSION['inacademia_validated'] = $validated;
