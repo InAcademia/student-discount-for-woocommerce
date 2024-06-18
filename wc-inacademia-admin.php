@@ -309,7 +309,7 @@ function inacademia_clientsecret_cb( $args ) {
       value="<?php echo esc_attr($client_secret) ?>">
 	<p class="description">
 		<?php echo 'Your client_id and client_secret will be automatically created during the Subscription order process.'; ?><br>
-		<?php echo 'You will find them in the Subscription Details of the <a href="https://inacademia.org/my-account/subscriptions">Summary of your account</a>. Follow the link to manage the subscription inside your confirmation email.'; ?><br>
+		<?php echo 'You will find them in the Subscription Summary of <a href="https://inacademia.org/my-account/subscriptions">your account</a>. Follow the link to manage the subscription inside your confirmation email.'; ?><br>
 		<?php echo 'Please paste them to the boxes above (if you need to change your redirect_uri please contact us). This is mandatory to link your subscription to your plugin, and the plugin will not function correctly without these values.'; ?>
 	</p>
 	<?php
@@ -396,7 +396,7 @@ function inacademia_notify_cb( $args ) {
 	$notifcation = @$options[$label_for] ?? 'off';
 	/*
 	<p class="description">
-		<?php echo 'Please select how you would like to invite users to validate their academic affiliation. This can be achieved either by using a URL inside a <a href="https://woocommerce.com/document/woocommerce-cart-notices/" target=_blank>Notice</a> or by hitting the \'InAcademia\' button'; ?><br>
+		<?php echo 'Please select how you would like to invite users to validate their academic affiliation. This can be achieved either by using a URL inside a <a href="https://woocommerce.com/document/woocommerce-cart-notices/" target=_blank>Notice</a> or by hitting the \'I\'m a Student\' button'; ?><br>
 	</p>
 	*/
 	?>
@@ -506,7 +506,7 @@ function inacademia_options_page_html() {
 function welcome_text() {?>
 	<h2>Important Information</h2>
 	<p>InAcademia is a service that's designed to help businesses validate the elgibility of users that claim discounts, offers or services that are only availble to students.</p>
-  <p>It uses an interfederation called eduGAIN, which will connect to the user's home institution identity management services using our 'I'm a Student' (or notice) to confirm whether the user holds the correct role attribute before providing a positive or negative outcome, or validation.</p>
+  <p>It uses an interfederation called eduGAIN, which will connect to the user's home institution identity management services using our 'I'm a Student' button (or notice) to confirm whether the user holds the correct role attribute before providing a positive or negative outcome, or validation.</p>
   <p>This page describes the steps that must be followed when completing the settings for this plugin.</p>
 
   <h2>Step one: configure the discount to be applied</h2>
@@ -517,11 +517,11 @@ function welcome_text() {?>
   <p>When you installed the plugin, a unique redirect_uri was created on the Setting tab. This value must be entered when promted, when processing your subscription order.</p>
 
   <h2>Step three: link your subscription to the plugin</h2>
-	<p>Your client_id and client_secret will be automatically created during the Subscription order process. You will find them in the Subscription Details of the <a href="https://inacademia.org/my-account/subscriptions">Summary of your account</a>; they are both vital terms that are required for the proper-functioning of the service and will be transmitted to the InAcademia service with each user's validation request. You must paste them to the correct boxes in the Settings tab.</p>
+	<p>Your client_id and client_secret will be automatically created during the Subscription order process. You will find them in the Subscription Summary of <a href="https://inacademia.org/my-account/subscriptions">your account</a>; they are both vital terms that are required for the proper-functioning of the service and will be transmitted to the InAcademia service with each user's validation request. You must paste them to the correct boxes in the Settings tab.</p>
 
   <h2>Step four: activate your service</h2>
-  <p>When you have created your discount coupon, linked your redirect_uri to your subscription, and linked the client_id and client_secret to the plugin, you will need to decide how you would like to invite users to validate their academic affiliation, either by using a Notice URL or by hitting the 'InAcademia' button.</p>
-  <p>It's allowable to use either or both, but please be aware that if you check either box, either the 'I'm a Student' button or 'I'm a Student notice' will be enabled on your shopping cart.</p>
+  <p>When you have created your discount coupon, linked your redirect_uri to your subscription, and linked the client_id and client_secret to the plugin, you will need to decide how you would like to invite users to validate their academic affiliation, either by using a Notice URL or by hitting the 'I'm a Student' button.</p>
+  <p>It's allowable to use either or both, but please be aware that if you check either box, either the 'I'm a Student' button or 'I'm a Student' notice will be enabled on your shopping cart.</p>
   <h2>Ensure that your subscription is complete and active before hitting 'Save Settings'.</h2>
 <?php
 }
