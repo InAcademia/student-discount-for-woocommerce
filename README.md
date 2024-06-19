@@ -39,7 +39,7 @@ The Student Discount for WooCommerce plugin is free to download and comes with a
 |![EU-Funded Logo](https://wiki.geant.org/download/attachments/725614690/image-2024-1-8_18-16-12.png)<br>GN5-1 project is funded from the Horizon Europe research and innovation programme under Grant Agreement No. 101100680 (GN5-1)|
 |:-|
 
-## Installation 
+## Installation
 
 Clone this repo in an existing WordPress + WooCommerce installation under ```wp-content/plugins/```
 
@@ -49,7 +49,7 @@ Enable the plugin in WP admin console
 
 ### Step one: configure the discount to be applied
 
-Set up your discount using the Coupon feature offered by the [WooCommerce Marketing feature set](https://woocommerce.com/document/coupon-management/) by creating an appropriately named coupon that defines the extent of the discount that you wish to offer and enter the coupon name in the box labelled 'Coupon'. If you wish to change the Coupon you will need to overwrite the data with the new Coupon Code in the field labelled 'Coupon'. 
+Set up your discount using the Coupon feature offered by the [WooCommerce Marketing feature set](https://woocommerce.com/document/coupon-management/) by creating an appropriately named coupon that defines the extent of the discount that you wish to offer and enter the coupon name in the box labelled 'Coupon'. If you wish to change the Coupon you will need to overwrite the data with the new Coupon Code in the field labelled 'Coupon'.
 
 ### Step two: set up your subscription and make it unique to the plugin in your shop
 
@@ -94,7 +94,7 @@ Dependency openid-connect-php-v1.0.0
 - Licence: Apache 2.0
 - Copyright MITRE 2020
 
-Dependency paragonie/constant_time_encoding-v2.6.3
+Dependency paragonie/constant_time_encoding-v3.0.0
 - Version: v2.6.3
 - URL:   [https://github.com/paragonie/constant_time_encoding.git](https://github.com/paragonie/constant_time_encoding.git)
 - Licensed: MIT
@@ -106,7 +106,7 @@ Dependency paragonie/random_compat-v9.99.100
 - Licensed: MIT
 - Copyright 2015 Paragon Initiative Enterprises
 
-Dependency phpseclib-3.0.37
+Dependency phpseclib-3.0.38
 - Version: 3.0.37
 - URL: [https://github.com/phpseclib](https://github.com/phpseclib)
 - Licensed: MIT
