@@ -95,7 +95,7 @@ Dependency openid-connect-php-v1.0.0
 - Copyright MITRE 2020
 
 Dependency paragonie/constant_time_encoding-v3.0.0
-- Version: v2.6.3
+- Version: v3.0.0
 - URL:   [https://github.com/paragonie/constant_time_encoding.git](https://github.com/paragonie/constant_time_encoding.git)
 - Licensed: MIT
 - Copyright 2014 Steve Thomas, Copyright 2016-2022 Paragon Initiative Enterprises
@@ -107,7 +107,7 @@ Dependency paragonie/random_compat-v9.99.100
 - Copyright 2015 Paragon Initiative Enterprises
 
 Dependency phpseclib-3.0.38
-- Version: 3.0.37
+- Version: 3.0.38
 - URL: [https://github.com/phpseclib](https://github.com/phpseclib)
 - Licensed: MIT
 - Copyright 2011-2019 TerraFrost and other contributors
