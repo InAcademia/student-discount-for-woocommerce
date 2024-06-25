@@ -1,5 +1,4 @@
-# Changelog
+*** Student Discount for WooCommerce Changelog ***
 
-## v1.0
-
-_First release._
+2024-06-25 - version v1.0
+* First release.
