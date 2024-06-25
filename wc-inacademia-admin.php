@@ -83,7 +83,7 @@ function inacademia_settings_init() {
 		'inacademia_redirect_cb',
 		'inacademia',
 		'inacademia_section_settings',
-		array(),
+		array()
 	);
 
 	add_settings_field(
