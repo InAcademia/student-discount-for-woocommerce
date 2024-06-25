@@ -8,7 +8,7 @@
  * Plugin Name: Student Discount for WooCommerce
  * Plugin URI: https://inacademia.org/
  * Description: Adds student validation by InAcademia
- * Version: v1.0
+ * Version: 1.0
  * Author: Martin van Es
  * Author URI: https://inacademia.org/
  * Text Domain: wc-inacademia-main
