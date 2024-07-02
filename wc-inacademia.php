@@ -9,8 +9,8 @@
  * Plugin URI: https://inacademia.org/
  * Description: Adds student validation by InAcademia
  * Version: 1.0
- * Author: Martin van Es
- * Author URI: https://inacademia.org/
+ * Author: Martin van Es for GEANT Association
+ * Author URI: https://geant.org/
  * Text Domain: wc-inacademia-main
  * License: GPLv3 or later
  * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
