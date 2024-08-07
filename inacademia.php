@@ -5,8 +5,6 @@
  * @package InAcademia
  */
 
-session_start();
-
 /**
  * Autoload OpenOIConnectClient
  *
@@ -18,9 +16,16 @@ use Jumbojett\OpenIDConnectClient;
 /**
  * Redirect URL.
  */
-function redirect_url() {
-	$host = isset( $_SERVER['HTTP_HOST'] ) ? filter_input( INPUT_SERVER, 'HTTP_HOST' ) : '';
-	$script = isset( $_SERVER['SCRIPT_NAME'] ) ? filter_input( INPUT_SERVER, 'SCRIPT_NAME' ) : '/start.php';
+function create_redirect_url() {
+	$host = filter_input( INPUT_SERVER, 'HTTP_HOST', FILTER_VALIDATE_DOMAIN, array( 'options' => array( 'default' => '' ) ) );
+	$options = array(
+		'options' => array(
+			'default' => '/start.php',
+			'regexp' => '/^\/.+\.php/',
+		),
+	);
+	$script = filter_input( INPUT_SERVER, 'SCRIPT_NAME', FILTER_VALIDATE_REGEXP, $options );
+
 	$url = 'http';
 	$url .= isset( $_SERVER['HTTPS'] ) ? 's' : '';
 	$url .= '://' . $host . str_replace( 'start.php', 'redirect.php', $script );
@@ -31,6 +36,12 @@ function redirect_url() {
  * Authenticate
  */
 function inacademia_authenticate() {
+	session_start( array( 'name' => 'inacademia' ) );
+
+	if ( ! isset( $_SESSION['inacademia_referrer'] ) && isset( $_SERVER['HTTP_REFERER'] ) ) {
+		$_SESSION['inacademia_referrer'] = filter_input( INPUT_SERVER, 'HTTP_REFERER', FILTER_VALIDATE_URL );
+	}
+
 	/*
 	 * Bikeshed
 	// $op_url = $_SESSION['inacademia_op_url']; // https://op.inacademia.local/
@@ -62,7 +73,7 @@ function inacademia_authenticate() {
 	 * Bikeshed
 	// $oidc->setAllowImplicitFlow(true);
 	*/
-	$oidc->setRedirectURL( redirect_url() );
+	$oidc->setRedirectURL( create_redirect_url() );
 
 	$claims = isset( $_SESSION['inacademia_claims'] ) ? filter_var( $_SESSION['inacademia_claims'], FILTER_SANITIZE_STRING ) : null;
 	$validated = false;
@@ -81,4 +92,10 @@ function inacademia_authenticate() {
 	}
 
 	$_SESSION['inacademia_validated'] = $validated;
+
+	if ( isset( $_SESSION['inacademia_referrer'] ) ) {
+		$location = filter_var( $_SESSION['inacademia_referrer'], FILTER_SANITIZE_URL );
+		unset( $_SESSION['inacademia_referrer'] );
+		header( 'Location: ' . $location, true );
+	}
 }

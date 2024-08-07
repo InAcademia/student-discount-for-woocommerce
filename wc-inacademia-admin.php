@@ -10,14 +10,14 @@ $button_text = 'Next';
 /**
  * Register our inacademia_settings plugin link
  */
-add_filter( 'plugin_action_links_student-discount-for-woocommerce/wc-inacademia.php', 'inac_settings_link' );
+add_filter( 'plugin_action_links_student-discount-for-woocommerce/wc-inacademia.php', 'inacademia_settings_link' );
 
 /**
  * Settings_link
  *
  * @param array $links links.
  */
-function inac_settings_link( $links ) {
+function inacademia_settings_link( $links ) {
 	// Build and escape the URL.
 	$url = esc_url(
 		add_query_arg(
@@ -27,7 +27,7 @@ function inac_settings_link( $links ) {
 		)
 	);
 	// Create the link.
-	$settings_link = "<a href='$url'>" . __( 'Settings' ) . '</a>';
+	$settings_link = "<a href='$url'>Settings</a>";
 	// Adds the link to the end of the array.
 	array_push(
 		$links,
@@ -49,7 +49,7 @@ function inacademia_settings_init() {
 
 	// Register a new setting for "inacademia" page.
 	$args = array(
-		'sanitize_callback' => 'sanitize_inacademia_options',
+		'sanitize_callback' => 'inacademia_sanitize_options',
 	);
 
 	register_setting( 'inacademia', 'inacademia_options', $args );
@@ -57,7 +57,7 @@ function inacademia_settings_init() {
 	// Register a new section in the "inacademia" page.
 	add_settings_section(
 		'inacademia_section_settings',
-		__( 'InAcademia settings.', 'inacademia' ),
+		'InAcademia settings.',
 		'inacademia_section_settings_callback',
 		'inacademia'
 	);
@@ -65,7 +65,7 @@ function inacademia_settings_init() {
 	// Register a new field in the "inacademia_section_settings" section, inside the "inacademia" page.
 	add_settings_field(
 		'coupon_name',
-		__( 'Coupon', 'inacademia' ),
+		'Coupon',
 		'inacademia_coupon_cb',
 		'inacademia',
 		'inacademia_section_settings',
@@ -79,7 +79,7 @@ function inacademia_settings_init() {
 
 	add_settings_field(
 		'redirect_uri',
-		__( 'Redirect URI', 'inacademia' ),
+		'Redirect URI',
 		'inacademia_redirect_cb',
 		'inacademia',
 		'inacademia_section_settings',
@@ -88,7 +88,7 @@ function inacademia_settings_init() {
 
 	add_settings_field(
 		'redirect_uri_done',
-		__( 'Redirect URI Done', 'inacademia' ),
+		'Redirect URI Done',
 		'inacademia_redirect_done_cb',
 		'inacademia',
 		'inacademia_section_settings',
@@ -105,7 +105,7 @@ function inacademia_settings_init() {
 
 	add_settings_field(
 		'client_id',
-		__( 'ClientID', 'inacademia' ),
+		'ClientID',
 		'inacademia_clientid_cb',
 		'inacademia',
 		'inacademia_section_settings',
@@ -120,7 +120,7 @@ function inacademia_settings_init() {
 	*/
 	add_settings_field(
 		'client_secret',
-		__( 'ClientSecret', 'inacademia' ),
+		'ClientSecret',
 		'inacademia_clientsecret_cb',
 		'inacademia',
 		'inacademia_section_settings',
@@ -136,7 +136,7 @@ function inacademia_settings_init() {
 	 * Bikeshed
 	add_settings_field(
 		'scope',
-		__( 'User role', 'inacademia' ),
+		'User role',
 		'inacademia_scope_cb',
 		'inacademia',
 		'inacademia_section_settings',
@@ -148,7 +148,7 @@ function inacademia_settings_init() {
 
 	add_settings_field(
 		'op_url',
-		__( 'OP URL', 'inacademia' ),
+		'OP URL',
 		'inacademia_opurl_cb',
 		'inacademia',
 		'inacademia_section_settings',
@@ -169,7 +169,7 @@ function inacademia_settings_init() {
 
 	add_settings_field(
 		'notification',
-		__( 'Publish Notice', 'inacademia' ),
+		'Publish Notice',
 		'inacademia_notify_cb',
 		'inacademia',
 		'inacademia_section_settings',
@@ -180,7 +180,7 @@ function inacademia_settings_init() {
 
 	add_settings_field(
 		'button',
-		__( 'Publish Button', 'inacademia' ),
+		'Publish Button',
 		'inacademia_button_cb',
 		'inacademia',
 		'inacademia_section_settings',
@@ -198,7 +198,7 @@ function inacademia_settings_init() {
  *
  * @param array $options options.
  */
-function sanitize_inacademia_options( $options ) {
+function inacademia_sanitize_options( $options ) {
 	if ( is_array( $options ) && isset( $options['coupon_name'] ) ) {
 		$options['coupon_name'] = strtolower( $options['coupon_name'] );
 	}
@@ -212,7 +212,7 @@ function sanitize_inacademia_options( $options ) {
 			$wrong_client_id = true;
 		}
 		if ( $wrong_client_id ) {
-			add_settings_error( 'inacademia', 'inacademia_message', __( 'ClientID must match the ClientID allocated by your subscription', 'inacademia' ), 'error' );
+			add_settings_error( 'inacademia', 'inacademia_message', 'ClientID must match the ClientID allocated by your subscription', 'error' );
 			unset( $options['client_id'] );
 		}
 	}
@@ -223,7 +223,7 @@ function sanitize_inacademia_options( $options ) {
 			$wrong_client_secret = true;
 		}
 		if ( $wrong_client_secret ) {
-			add_settings_error( 'inacademia', 'inacademia_message', __( 'ClientID must match the Client Secret allocated by your subscription', 'inacademia' ), 'error' );
+			add_settings_error( 'inacademia', 'inacademia_message', 'ClientID must match the Client Secret allocated by your subscription', 'error' );
 			unset( $options['client_secret'] );
 		}
 	}
@@ -238,7 +238,7 @@ function sanitize_inacademia_options( $options ) {
 function inacademia_section_settings_callback( $args ) {
 	?>
 	<p id="<?php echo esc_attr( $args['id'] ); ?>">
-		<?php echo esc_html( settings_text() ); ?>
+		<?php echo esc_html( inacademia_settings_text() ); ?>
 	<p>
 	<?php
 }
@@ -541,7 +541,7 @@ function inacademia_options_page_html() {
 					do_settings_sections( 'inacademia' );
 					// Output save settings button when client_secret has been set.
 					if ( @$options['client_secret'] ) {
-						echo esc_html( submit_text() );
+						echo esc_html( inacademia_submit_text() );
 					}
 					submit_button( $button_text );
 					?>
@@ -549,10 +549,10 @@ function inacademia_options_page_html() {
 				<?php
 			break;
 		case 'support':
-			echo esc_html( support_text() );
+			echo esc_html( inacademia_support_text() );
 			break;
 		default:
-			echo esc_html( welcome_text() );
+			echo esc_html( inacademia_welcome_text() );
 			break;
 			endswitch;
 	?>
@@ -564,7 +564,7 @@ function inacademia_options_page_html() {
 /**
  * Welcome text
  */
-function welcome_text() {
+function inacademia_welcome_text() {
 
 	?>
 	<h2>Important Information</h2>
@@ -592,7 +592,7 @@ function welcome_text() {
 /**
  * Settings text
  */
-function settings_text() {
+function inacademia_settings_text() {
 
 	?>
 	<p>Inputting the required data on this page will finalise the configuration of your shop's access to the InAcademia service and will deploy either a button or notice to your checkout, so please follow each step carefully before proceeding to 'Save Settings'. Merchants are strongly advised to test their settings in a WordPress development environment prior to deploying to production.</p>
@@ -606,7 +606,7 @@ function settings_text() {
 /**
  * Support text
  */
-function support_text() {
+function inacademia_support_text() {
 
 	?>
 	<h2>Request Support</h2>
@@ -620,7 +620,7 @@ function support_text() {
 /**
  * Submit text
  */
-function submit_text() {
+function inacademia_submit_text() {
 
 	?>
   <p>It's allowable to use either or both.<p>

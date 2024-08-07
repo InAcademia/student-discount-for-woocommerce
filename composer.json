@@ -1,0 +1,19 @@
+{
+    "name": "martin/wc-inacademia",
+    "description": "WooCommerce InAcademia plugin",
+    "type": "wordpress-plugin",
+    "require": {
+        "jumbojett/openid-connect-php": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Martin\\WcInacademia\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Martin van Es",
+            "email": "martin@mrvanes.com"
+        }
+    ]
+}

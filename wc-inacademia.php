@@ -18,13 +18,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
-@session_start();
-
 // Define INACADEMIA_VERSION.
 $plugin_data = get_file_data( __FILE__, array( 'version' => 'version' ) );
 define( 'INACADEMIA_VERSION', $plugin_data['version'] );
 
-$validated = isset( $_SESSION['inacademia_validated'] ) ? filter_var( wp_unslash( $_SESSION['inacademia_validated'] ), FILTER_SANITIZE_STRING ) : false;
+$validated = false;
+
 $options = get_option(
 	'inacademia_options',
 	array(
@@ -48,7 +47,7 @@ $button_allowed = false;
 require 'wc-inacademia-admin.php';
 require 'wc-inacademia-blocks.php';
 
-add_action( 'wp_enqueue_scripts', 'register_my_scripts' );
+add_action( 'wp_enqueue_scripts', 'inacademia_register_scripts' );
 add_action( 'woocommerce_check_cart_items', 'inacademia_handle_validation' );
 add_action( 'woocommerce_applied_coupon', 'inacademia_applied_coupon' );
 add_action( 'woocommerce_removed_coupon', 'inacademia_removed_coupon' );
@@ -60,22 +59,23 @@ if ( 'on' == $button ) {
 	add_action( 'woocommerce_proceed_to_checkout', 'inacademia_button', 20 );
 }
 
+// @session_start();
 // $_SESSION['inacademia_op_url'] = @$options['op_url'];
 // $_SESSION['inacademia_scope'] = @$options['scope'];
-$_SESSION['inacademia_client_id'] = @$options['client_id'];
-$_SESSION['inacademia_client_secret'] = @$options['client_secret'];
+// $_SESSION['inacademia_client_id'] = @$options['client_id'];
+// $_SESSION['inacademia_client_secret'] = @$options['client_secret'];
 
 /**
  * Check if this is an api call
  */
-function is_api() {
+function inacademia_is_api() {
 	return defined( 'REST_REQUEST' ) ? REST_REQUEST : false;
 }
 
 /**
  * Register my scripts
  */
-function register_my_scripts() {
+function inacademia_register_scripts() {
 	wp_enqueue_style( 'inacademia', plugins_url( 'assets/inacademia.css', __FILE__ ) );
 }
 
@@ -90,11 +90,18 @@ function inacademia_get_validation_url() {
  * WP_loaded hook
  */
 function inacademia_wp_loaded() {
-	if ( ! WC()->cart || iS_api() ) {
+	global $inacademia_coupon, $button_allowed, $options, $validated;
+
+	if ( ! WC()->cart || inacademia_is_api() ) {
 		return;
 	}
 
-	global $inacademia_coupon, $button_allowed;
+	session_start( array( 'name' => 'inacademia' ) );
+	// $_SESSION['inacademia_op_url'] = @$options['op_url'];
+	// $_SESSION['inacademia_scope'] = @$options['scope'];
+	$_SESSION['inacademia_client_id'] = @$options['client_id'];
+	$_SESSION['inacademia_client_secret'] = @$options['client_secret'];
+	$validated = isset( $_SESSION['inacademia_validated'] ) ? filter_var( wp_unslash( $_SESSION['inacademia_validated'] ), FILTER_SANITIZE_STRING ) : false;
 
 	$coupon = new \WC_Coupon( $inacademia_coupon );
 	$coupon_id = $coupon->get_id();
@@ -183,9 +190,11 @@ function inacademia_button() {
 function inacademia_handle_validation() {
 	global $validated, $inacademia_coupon, $notification, $button_allowed;
 
-	if ( ! $button_allowed || is_api() ) {
+	if ( ! $button_allowed || inacademia_is_api() ) {
 		return;
 	}
+
+	session_start( array( 'name' => 'inacademia' ) );
 
 	$inacademia_error = isset( $_SESSION['inacademia_error'] ) ? filter_var( wp_unslash( $_SESSION['inacademia_error'] ), FILTER_SANITIZE_STRING ) : null;
 	if ( $inacademia_error ) {
@@ -223,6 +232,7 @@ function inacademia_handle_validation() {
  */
 function inacademia_change_coupon_label( $label, $coupon ) {
 	global $inacademia_coupon;
+
 	if ( $coupon->get_code() == $inacademia_coupon ) {
 		echo 'Student discount';
 	} else {
@@ -237,6 +247,7 @@ function inacademia_change_coupon_label( $label, $coupon ) {
  */
 function inacademia_applied_coupon( $coupon ) {
 	global $validated, $inacademia_coupon;
+
 	if ( $coupon == $inacademia_coupon && ! $validated ) {
 		// Do not allow inacademia coupon to be claimed without inacademia session (validated).
 		WC()->cart->remove_coupon( $inacademia_coupon );
@@ -251,9 +262,11 @@ function inacademia_applied_coupon( $coupon ) {
  */
 function inacademia_removed_coupon( $coupon ) {
 	global $validated, $inacademia_coupon;
-	if ( $coupon == $inacademia_coupon && $validated ) {
+
+	if ( $coupon == $inacademia_coupon ) {
 		// Clear the inacademia session (validated).
-		$_SESSION['inacademia_validated'] = false;
+		session_start( array( 'name' => 'inacademia' ) );
+		unset( $_SESSION['inacademia_validated'] );
 	}
 }
 

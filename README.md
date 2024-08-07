@@ -6,7 +6,7 @@ Tags: inacademia, student validation, student discount, student, discount, valid
 
 Requires at least: 8.4.0
 
-Tested up to: 8.9.1
+Tested up to: 9.1.4
 
 Stable tag: 1.0
 

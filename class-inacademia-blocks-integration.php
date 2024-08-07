@@ -91,7 +91,7 @@ class InAcademia_Blocks_Integration implements IntegrationInterface {
 	 * @param int $c coupon id.
 	 */
 	private function excluded_ids( $c ) {
-		if ( ! WC()->cart || iS_api() ) {
+		if ( ! WC()->cart || inacademia_is_api() ) {
 			return false;
 		}
 		$coupon = new \WC_Coupon( $c );
@@ -105,7 +105,7 @@ class InAcademia_Blocks_Integration implements IntegrationInterface {
 	 * @param int $c coupon id.
 	 */
 	private function coupon_ids( $c ) {
-		if ( ! WC()->cart || iS_api() ) {
+		if ( ! WC()->cart || inacademia_is_api() ) {
 			return false;
 		}
 		$coupon = new \WC_Coupon( $c );
