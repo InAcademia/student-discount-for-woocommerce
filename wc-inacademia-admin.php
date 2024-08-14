@@ -5,12 +5,14 @@
  * @package InAcademia
  */
 
-$button_text = 'Next';
+defined( 'ABSPATH' ) || exit;
+
+$inacademia_button_text = 'Next';
 
 /**
  * Register our inacademia_settings plugin link
  */
-add_filter( 'plugin_action_links_student-discount-for-woocommerce/wc-inacademia.php', 'inacademia_settings_link' );
+add_filter( 'plugin_action_links_' . INACADEMIA_SLUG, 'inacademia_settings_link' );
 
 /**
  * Settings_link
@@ -45,7 +47,7 @@ add_action( 'admin_init', 'inacademia_settings_init' );
  */
 function inacademia_settings_init() {
 	$options = get_option( 'inacademia_options' );
-	global $button_text;
+	global $inacademia_button_text;
 
 	// Register a new setting for "inacademia" page.
 	$args = array(
@@ -189,7 +191,7 @@ function inacademia_settings_init() {
 		)
 	);
 
-	$button_text = 'Save';
+	$inacademia_button_text = 'Save';
 }
 
 /**
@@ -276,7 +278,7 @@ function inacademia_coupon_cb( $args ) {
  * @param array $args args.
  */
 function inacademia_redirect_cb( $args ) {
-	 echo esc_url( plugin_dir_url( __FILE__ ) . 'redirect.php' );
+	 echo esc_url( inacademia_create_redirect_url() );
 	?>
 	<p class="description">
 		<?php echo 'Please copy the redirect_uri printed above and visit <a href="https://inacademia.org/shop" target=_blank>https://inacademia.org/shop</a> to complete your subscription to the InAcademia Service. During the process of subscribing, you will be asked to \'Enter Redirect URI here\'. This is mandatory, and you must paste the redirect_uri exactly as it appears here paste the redirect_uri into the box.'; ?>
@@ -492,7 +494,7 @@ function inacademia_options_page() {
  */
 function inacademia_options_page_html() {
 	$options = get_option( 'inacademia_options' );
-	global $button_text;
+	global $inacademia_button_text;
 
 	// Check user capabilities.
 	if ( ! current_user_can( 'manage_options' ) ) {
@@ -543,7 +545,7 @@ function inacademia_options_page_html() {
 					if ( @$options['client_secret'] ) {
 						echo esc_html( inacademia_submit_text() );
 					}
-					submit_button( $button_text );
+					submit_button( $inacademia_button_text );
 					?>
 				</form>
 				<?php

@@ -5,6 +5,8 @@
  * @package InAcademia
  */
 
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Autoload OpenOIConnectClient
  *
@@ -14,21 +16,20 @@ require 'vendor/autoload.php';
 use Jumbojett\OpenIDConnectClient;
 
 /**
+ * Start URL.
+ */
+function inacademia_create_start_url() {
+	$rest_url = get_rest_url();
+	$url = $rest_url . INACADEMIA_SLUG . '/start';
+	return $url;
+}
+
+/**
  * Redirect URL.
  */
-function create_redirect_url() {
-	$host = filter_input( INPUT_SERVER, 'HTTP_HOST', FILTER_VALIDATE_DOMAIN, array( 'options' => array( 'default' => '' ) ) );
-	$options = array(
-		'options' => array(
-			'default' => '/start.php',
-			'regexp' => '/^\/.+\.php/',
-		),
-	);
-	$script = filter_input( INPUT_SERVER, 'SCRIPT_NAME', FILTER_VALIDATE_REGEXP, $options );
-
-	$url = 'http';
-	$url .= isset( $_SERVER['HTTPS'] ) ? 's' : '';
-	$url .= '://' . $host . str_replace( 'start.php', 'redirect.php', $script );
+function inacademia_create_redirect_url() {
+	$rest_url = get_rest_url();
+	$url = $rest_url . INACADEMIA_SLUG . '/redirect';
 	return $url;
 }
 
@@ -73,7 +74,7 @@ function inacademia_authenticate() {
 	 * Bikeshed
 	// $oidc->setAllowImplicitFlow(true);
 	*/
-	$oidc->setRedirectURL( create_redirect_url() );
+	$oidc->setRedirectURL( inacademia_create_redirect_url() );
 
 	$claims = isset( $_SESSION['inacademia_claims'] ) ? filter_var( $_SESSION['inacademia_claims'], FILTER_SANITIZE_STRING ) : null;
 	$validated = false;

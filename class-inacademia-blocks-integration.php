@@ -120,7 +120,7 @@ class InAcademia_Blocks_Integration implements IntegrationInterface {
 		$options = get_option( 'inacademia_options', array() );
 		$this->coupon = @$options['coupon_name'] ?? '';
 		$this->button = @$options['button'] ?? 'off';
-		$this->url = esc_url( inacademia_get_validation_url() );
+		$this->url = esc_url( inacademia_create_start_url() );
 		$this->img_validate = plugins_url( 'assets/mortarboard.svg', __FILE__ );
 		$this->img_validated = plugins_url( 'assets/mortarboard_white.svg', __FILE__ );
 		$this->coupon_product_ids = $this->coupon_ids( $this->coupon );

@@ -106,8 +106,8 @@ Dependency paragonie/random_compat-v9.99.100
 - Licensed: MIT
 - Copyright 2015 Paragon Initiative Enterprises
 
-Dependency phpseclib-3.0.39
-- Version: 3.0.39
+Dependency phpseclib-3.0.41
+- Version: 3.0.41
 - URL: [https://github.com/phpseclib](https://github.com/phpseclib)
 - Licensed: MIT
 - Copyright 2011-2019 TerraFrost and other contributors

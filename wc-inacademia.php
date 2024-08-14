@@ -19,12 +19,13 @@
 defined( 'ABSPATH' ) || exit;
 
 // Define INACADEMIA_VERSION.
-$plugin_data = get_file_data( __FILE__, array( 'version' => 'version' ) );
+$inacademia_plugin_data = get_file_data( __FILE__, array( 'version' => 'version' ) );
 define( 'INACADEMIA_VERSION', $plugin_data['version'] );
+define( 'INACADEMIA_SLUG', 'student-discount-for-woocommerce' );
 
-$validated = false;
+$inacademia_validated = false;
 
-$options = get_option(
+$inacademia_options = get_option(
 	'inacademia_options',
 	array(
 		'coupon_name' => 'foobar',
@@ -35,15 +36,16 @@ $options = get_option(
 		'button' => 'off',
 	)
 );
-if ( ! is_array( $options ) ) {
-	$options = array();
+if ( ! is_array( $inacademia_options ) ) {
+	$inacademia_options = array();
 }
 
-$inacademia_coupon = @$options['coupon_name'];
-$notification = @$options['notification'] ?? 'off';
-$button = @$options['button'] ?? 'off';
-$button_allowed = false;
+$inacademia_coupon = @$inacademia_options['coupon_name'];
+$inacademia_notification = @$inacademia_options['notification'] ?? 'off';
+$inacademia_button = @$inacademia_options['button'] ?? 'off';
+$inacademia_button_allowed = false;
 
+require 'inacademia.php';
 require 'wc-inacademia-admin.php';
 require 'wc-inacademia-blocks.php';
 
@@ -55,21 +57,37 @@ add_action( 'wp_loaded', 'inacademia_wp_loaded' );
 
 add_filter( 'woocommerce_cart_totals_coupon_label', 'inacademia_change_coupon_label', 10, 2 );
 
-if ( 'on' == $button ) {
+add_action( 'rest_api_init', 'inacademia_register_api_routes' );
+
+if ( 'on' == $inacademia_button ) {
 	add_action( 'woocommerce_proceed_to_checkout', 'inacademia_button', 20 );
 }
 
 // @session_start();
-// $_SESSION['inacademia_op_url'] = @$options['op_url'];
-// $_SESSION['inacademia_scope'] = @$options['scope'];
-// $_SESSION['inacademia_client_id'] = @$options['client_id'];
-// $_SESSION['inacademia_client_secret'] = @$options['client_secret'];
+// $_SESSION['inacademia_op_url'] = @$inacademia_options['op_url'];
+// $_SESSION['inacademia_scope'] = @$inacademia_options['scope'];
+// $_SESSION['inacademia_client_id'] = @$inacademia_options['client_id'];
+// $_SESSION['inacademia_client_secret'] = @$inacademia_options['client_secret'];
 
 /**
  * Check if this is an api call
  */
 function inacademia_is_api() {
 	return defined( 'REST_REQUEST' ) ? REST_REQUEST : false;
+}
+
+/**
+ * Register my api routes
+ */
+function inacademia_register_api_routes() {
+	register_rest_route(
+		INACADEMIA_SLUG,
+		'/(start|redirect)',
+		array(
+			'methods' => 'GET',
+			'callback' => 'inacademia_authenticate',
+		)
+	);
 }
 
 /**
@@ -80,28 +98,21 @@ function inacademia_register_scripts() {
 }
 
 /**
- * Get validation URL
- */
-function inacademia_get_validation_url() {
-	return plugins_url( 'start.php', __FILE__ );
-}
-
-/**
  * WP_loaded hook
  */
 function inacademia_wp_loaded() {
-	global $inacademia_coupon, $button_allowed, $options, $validated;
+	global $inacademia_coupon, $inacademia_button_allowed, $inacademia_options, $inacademia_validated;
 
 	if ( ! WC()->cart || inacademia_is_api() ) {
 		return;
 	}
 
 	session_start( array( 'name' => 'inacademia' ) );
-	// $_SESSION['inacademia_op_url'] = @$options['op_url'];
-	// $_SESSION['inacademia_scope'] = @$options['scope'];
-	$_SESSION['inacademia_client_id'] = @$options['client_id'];
-	$_SESSION['inacademia_client_secret'] = @$options['client_secret'];
-	$validated = isset( $_SESSION['inacademia_validated'] ) ? filter_var( wp_unslash( $_SESSION['inacademia_validated'] ), FILTER_SANITIZE_STRING ) : false;
+	// $_SESSION['inacademia_op_url'] = @$inacademia_options['op_url'];
+	// $_SESSION['inacademia_scope'] = @$inacademia_options['scope'];
+	$_SESSION['inacademia_client_id'] = @$inacademia_options['client_id'];
+	$_SESSION['inacademia_client_secret'] = @$inacademia_options['client_secret'];
+	$inacademia_validated = isset( $_SESSION['inacademia_validated'] ) ? filter_var( wp_unslash( $_SESSION['inacademia_validated'] ), FILTER_SANITIZE_STRING ) : false;
 
 	$coupon = new \WC_Coupon( $inacademia_coupon );
 	$coupon_id = $coupon->get_id();
@@ -142,7 +153,7 @@ function inacademia_wp_loaded() {
 	if ( count( $coupon_product_ids ) ) {
 		foreach ( $coupon_product_ids as $coupon_product_id ) {
 			if ( in_array( $coupon_product_id, $cart_product_ids ) ) {
-				$button_allowed = true;
+				$inacademia_button_allowed = true;
 				break;
 			}
 		}
@@ -150,7 +161,7 @@ function inacademia_wp_loaded() {
 	} else {
 		foreach ( $cart_product_ids as $cart_product_id ) {
 			if ( ! in_array( $cart_product_id, $coupon_excluded_product_ids ) ) {
-				$button_allowed = true;
+				$inacademia_button_allowed = true;
 				break;
 			}
 		}
@@ -162,15 +173,15 @@ function inacademia_wp_loaded() {
  */
 function inacademia_button() {
 	// See woocommerce/templates/cart/proceed-to-checkout-button.php for original element.
-	global $validated, $button_allowed;
+	global $inacademia_validated, $inacademia_button_allowed;
 
 	?>
 
 	<?php
-	if ( $button_allowed ) {
-		if ( ! $validated ) {
+	if ( $inacademia_button_allowed ) {
+		if ( ! $inacademia_validated ) {
 			?>
-	  <a class='inacademia validate' href='<?php echo esc_url( inacademia_get_validation_url() ); ?>' target=_blank><img class='inacademia' src='<?php echo esc_url( plugins_url( 'assets/mortarboard.svg', __FILE__ ) ); ?>'>&nbsp;<span>I'm a Student</span></a><br>
+	  <a class='inacademia validate' href='<?php echo esc_url( inacademia_create_start_url() ); ?>' target=_blank><img class='inacademia' src='<?php echo esc_url( plugins_url( 'assets/mortarboard.svg', __FILE__ ) ); ?>'>&nbsp;<span>I'm a Student</span></a><br>
 	  <i>Login at your university to apply a student discount</i><br>
 			<?php
 		} else {
@@ -188,9 +199,9 @@ function inacademia_button() {
  * Handle InAcademia Validation
  */
 function inacademia_handle_validation() {
-	global $validated, $inacademia_coupon, $notification, $button_allowed;
+	global $inacademia_validated, $inacademia_coupon, $inacademia_notification, $inacademia_button_allowed;
 
-	if ( ! $button_allowed || inacademia_is_api() ) {
+	if ( ! $inacademia_button_allowed || inacademia_is_api() ) {
 		return;
 	}
 
@@ -202,18 +213,18 @@ function inacademia_handle_validation() {
 		unset( $_SESSION['inacademia_error'] );
 	}
 
-	/* $validated = @$_SESSION['inacademia_validated'] || array(); */
+	/* $inacademia_validated = @$_SESSION['inacademia_validated'] || array(); */
 	$applied = WC()->cart->has_discount( $inacademia_coupon );
 
-	if ( $validated ) {
+	if ( $inacademia_validated ) {
 		if ( ! $applied ) {
 			WC()->cart->apply_coupon( $inacademia_coupon );
 			wc_clear_notices();
 			wc_print_notice( 'Student discount applied!', 'notice' );
 		}
 	} else {
-		if ( 'on' == $notification ) {
-			wc_print_notice( "Are you a university student? <a href='" . inacademia_get_validation_url() . "' target=_blank>Login</a> at your university to apply a student discount.", 'notice' );
+		if ( 'on' == $inacademia_notification ) {
+			wc_print_notice( "Are you a university student? <a href='" . inacademia_create_start_url() . "' target=_blank>Login</a> at your university to apply a student discount.", 'notice' );
 		}
 		if ( $applied ) {
 			WC()->cart->remove_coupon( $inacademia_coupon );
@@ -246,9 +257,9 @@ function inacademia_change_coupon_label( $label, $coupon ) {
  * @param coupon $coupon coupon.
  */
 function inacademia_applied_coupon( $coupon ) {
-	global $validated, $inacademia_coupon;
+	global $inacademia_validated, $inacademia_coupon;
 
-	if ( $coupon == $inacademia_coupon && ! $validated ) {
+	if ( $coupon == $inacademia_coupon && ! $inacademia_validated ) {
 		// Do not allow inacademia coupon to be claimed without inacademia session (validated).
 		WC()->cart->remove_coupon( $inacademia_coupon );
 		wc_clear_notices();
@@ -261,7 +272,7 @@ function inacademia_applied_coupon( $coupon ) {
  * @param coupon $coupon coupon.
  */
 function inacademia_removed_coupon( $coupon ) {
-	global $validated, $inacademia_coupon;
+	global $inacademia_validated, $inacademia_coupon;
 
 	if ( $coupon == $inacademia_coupon ) {
 		// Clear the inacademia session (validated).
