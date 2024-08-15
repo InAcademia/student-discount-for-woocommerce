@@ -12,7 +12,7 @@ $inacademia_button_text = 'Next';
 /**
  * Register our inacademia_settings plugin link
  */
-add_filter( 'plugin_action_links_' . INACADEMIA_SLUG, 'inacademia_settings_link' );
+add_filter( 'plugin_action_links_' . INACADEMIA_SLUG . '/wc-inacademia.php', 'inacademia_settings_link' );
 
 /**
  * Settings_link
