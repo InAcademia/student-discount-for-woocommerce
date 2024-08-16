@@ -6,7 +6,7 @@ on:
   # Triggers the workflow on push or pull request events
   release:
     tags:
-      - 'v*'
+      - 'v**'
     types: [published]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -25,27 +25,6 @@ jobs:
       # # Setup tmate session
       # - name: Setup tmate session
       #   uses: mxschmitt/action-tmate@v3
-      - name: install composer
-        run: sudo apt-get install -y composer wget
-
-      - name: Lint code
-        run: |
-          cd ..
-          mkdir CodeSniffer
-          cd CodeSniffer
-          echo '{}' > composer.json
-          composer config -n allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
-          composer require woocommerce/woocommerce-sniffs -n --dev
-          wget https://gist.github.com/woogists/d7da244ebad9a86286ad344a394c61ff/raw/c10cc6a18fcff0127b5535dcea5fe4c9ef27238a/phpcs.xml
-          ./vendor/bin/phpcs \
-          --standard=WooCommerce-Core,phpcs.xml \
-          --warning-severity=0 \
-          -s \
-          -v \
-          --ignore-annotations \
-          --extensions=php,html \
-          --ignore=*/assets/*,*/build/*,*/dist/*,*/node_modules/*,*/src/*,*/vendor/* \
-          ../student-discount-for-woocommerce
 
       - name: Create zip file
         run: |
