@@ -4,9 +4,9 @@ Contributors: MP van Es, michellewilliamsgeant
 
 Tags: inacademia, student validation, student discount, student, discount, validation, verification, woocommerce, coupon
 
-Requires at least: 8.4.0
+Requires at least: 6.0
 
-Tested up to: 9.1.4
+Tested up to: 6.6
 
 Stable tag: 1.0
 

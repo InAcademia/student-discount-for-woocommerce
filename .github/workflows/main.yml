@@ -41,6 +41,7 @@ jobs:
           --standard=WooCommerce-Core,phpcs.xml \
           --warning-severity=0 \
           -s \
+          -v \
           --ignore-annotations \
           --extensions=php,html \
           --ignore=*/assets/*,*/build/*,*/dist/*,*/node_modules/*,*/src/*,*/vendor/* \

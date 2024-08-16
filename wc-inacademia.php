@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 
 // Define INACADEMIA_VERSION.
 $inacademia_plugin_data = get_file_data( __FILE__, array( 'version' => 'version' ) );
-define( 'INACADEMIA_VERSION', $plugin_data['version'] );
+define( 'INACADEMIA_VERSION', $inacademia_plugin_data['version'] );
 define( 'INACADEMIA_SLUG', 'student-discount-for-woocommerce' );
 
 $inacademia_validated = false;
@@ -86,6 +86,7 @@ function inacademia_register_api_routes() {
 		array(
 			'methods' => 'GET',
 			'callback' => 'inacademia_authenticate',
+			'permission_callback' => '__return_true',
 		)
 	);
 }
