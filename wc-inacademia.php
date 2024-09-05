@@ -23,7 +23,7 @@ $inacademia_plugin_data = get_file_data( __FILE__, array( 'version' => 'version'
 define( 'INACADEMIA_VERSION', $inacademia_plugin_data['version'] );
 define( 'INACADEMIA_SLUG', 'student-discount-for-woocommerce' );
 define( 'INACADEMIA_OP_URL', 'https://plugin.srv.inacademia.org/' );
-// define( 'INACADEMIA_OP_URL', 'https://plugin.srv-test.inacademia.org/' );
+/* define( 'INACADEMIA_OP_URL', 'https://plugin.srv-test.inacademia.org/' ); */
 
 $inacademia_validated = false;
 
