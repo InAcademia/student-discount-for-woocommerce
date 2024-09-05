@@ -34,9 +34,27 @@ function inacademia_create_redirect_url() {
 }
 
 /**
- * Authenticate
+ * Dummy validation routine
  */
-function inacademia_authenticate() {
+function inacademia_validate_dummy() {
+	session_start( array( 'name' => 'inacademia' ) );
+	$validate = true;
+	$_SESSION['inacademia_validated'] = $validate;
+	if ( ! $validate ) {
+		$_SESSION['inacademia_error'] = 'Error';
+	}
+	if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
+		$http_referer = filter_input( INPUT_SERVER, 'HTTP_REFERER', FILTER_VALIDATE_URL );
+	} else {
+		$http_referer = '/';
+	}
+	header( 'Location: ' . $http_referer, true );
+}
+
+/**
+ * Validation routing
+ */
+function inacademia_validate() {
 	session_start( array( 'name' => 'inacademia' ) );
 
 	if ( ! isset( $_SESSION['inacademia_referrer'] ) && isset( $_SERVER['HTTP_REFERER'] ) ) {
@@ -48,7 +66,7 @@ function inacademia_authenticate() {
 	// $op_url = $_SESSION['inacademia_op_url']; // https://op.inacademia.local/
 	// $scope = $_SESSION['inacademia_scope']; // student
 	*/
-	$op_url = 'https://plugin.srv.inacademia.org/';
+	$op_url = INACADEMIA_OP_URL;
 	$scope = 'student'; // scope is now fixed.
 	$client_id = isset( $_SESSION['inacademia_client_id'] ) ? filter_var( $_SESSION['inacademia_client_id'], FILTER_SANITIZE_STRING ) : '';
 	$client_secret = isset( $_SESSION['inacademia_client_secret'] ) ? filter_var( $_SESSION['inacademia_client_secret'], FILTER_SANITIZE_STRING ) : '';

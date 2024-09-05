@@ -65,7 +65,7 @@ class InAcademia_Blocks_Integration implements IntegrationInterface {
 	 * Get editor script handles
 	 */
 	public function get_editor_script_handles() {
-		return array();
+		return array( 'inacademia-blocks' );
 	}
 
 	/**
@@ -91,7 +91,7 @@ class InAcademia_Blocks_Integration implements IntegrationInterface {
 	 * @param int $c coupon id.
 	 */
 	private function excluded_ids( $c ) {
-		if ( ! WC()->cart || inacademia_is_api() ) {
+		if ( ! WC()->cart || WC()->is_rest_api_request() ) {
 			return false;
 		}
 		$coupon = new \WC_Coupon( $c );
@@ -105,7 +105,7 @@ class InAcademia_Blocks_Integration implements IntegrationInterface {
 	 * @param int $c coupon id.
 	 */
 	private function coupon_ids( $c ) {
-		if ( ! WC()->cart || inacademia_is_api() ) {
+		if ( ! WC()->cart || WC()->is_rest_api_request() ) {
 			return false;
 		}
 		$coupon = new \WC_Coupon( $c );
@@ -118,6 +118,7 @@ class InAcademia_Blocks_Integration implements IntegrationInterface {
 	 */
 	public function initialize() {
 		$options = get_option( 'inacademia_options', array() );
+
 		$this->coupon = @$options['coupon_name'] ?? '';
 		$this->button = @$options['button'] ?? 'off';
 		$this->url = esc_url( inacademia_create_start_url() );
@@ -144,12 +145,11 @@ class InAcademia_Blocks_Integration implements IntegrationInterface {
 			);
 
 		wp_enqueue_script(
-			'inacademia',
+			'inacademia-blocks',
 			$script_url,
 			$script_asset['dependencies'],
 			$script_asset['version'],
 			true
 		);
-		wp_add_inline_script( 'inacademia', 'inacademia_data=' . wp_json_encode( $this->get_script_data() ) . ";\n", 'before' );
 	}
 }

@@ -5,7 +5,7 @@ import { __ } from '@wordpress/i18n';
 import { registerPlugin } from '@wordpress/plugins';
 import { ExperimentalOrderMeta } from '@woocommerce/blocks-checkout';
 import { useSelect } from '@wordpress/data';
-
+import { getSetting } from '@woocommerce/settings';
 
 function Stop(e) {
     e.preventDefault();
@@ -58,6 +58,13 @@ function Button({url, coupon, img_validate, img_validated, coupon_product_ids, e
 }
 
 const render = () => {
+	const inacademia_data = getSetting( 'inacademia_data' );
+	console.log(inacademia_data)
+
+	if (! inacademia_data || // This means we're in checkout
+		inacademia_data['button'] != 'on'
+	) return;
+
 	const show_button = inacademia_data['button'];
 
 	if (show_button === "on") {

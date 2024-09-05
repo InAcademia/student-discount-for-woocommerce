@@ -1,6 +1,6 @@
 # Student Discount for WooCommerce
 
-Contributors: MP van Es, michellewilliamsgeant
+Contributors: mrvanes, michellewilliamsgeant
 
 Tags: inacademia, student validation, student discount, student, discount, validation, verification, woocommerce, coupon
 
@@ -32,7 +32,7 @@ The whole validation process takes seconds and is based on the trusted [eduGAIN]
 
 The Student Discount for WooCommerce plugin is free to download and comes with a 14-day free trial for access to the InAcademia service. Continued use after the trial will require a subscription with InAcademia at a cost of €250 per month which will entitle you to up to 1000 validations per month.
 
-* At institutions that have joined an academic identity federation that is a member of the [eduGAIN](https://edugain.org) interfederation.
+\* At institutions that have joined an academic identity federation that is a member of the [eduGAIN](https://edugain.org) interfederation.
 
 ## Funding
 
@@ -52,10 +52,6 @@ Enable the plugin in WP admin console
 Set up your discount using the Coupon feature offered by the [WooCommerce Marketing feature set](https://woocommerce.com/document/coupon-management/) by creating an appropriately named coupon that defines the extent of the discount that you wish to offer and enter the coupon name in the box labelled 'Coupon'. If you wish to change the Coupon you will need to overwrite the data with the new Coupon Code in the field labelled 'Coupon'.
 
 ### Step two: set up your subscription and make it unique to the plugin in your shop
-
-> ### [InAcademia](https://inacademia.org/) is a GÉANT service
-> * [Contact](https://inacademia.org/plugin-support/)
-> * [Privacy Statement](https://inacademia.org/privacy-statement/)
 
 You will need to visit [https://inacademia.org/shop](https://inacademia.org/shop) to complete your subscription to the InAcademia Service in order to receive a unique client_id and client_secret, and it is necessary to link your subscription with the plugin in two stages before the I'm a Student button will be available for users to interact with. When you install the plugin, a unique redirect_uri is created on the Setting tab. This value must be entered when prompted, when processing your subscription order.
 
@@ -111,3 +107,7 @@ Dependency phpseclib-3.0.41
 - URL: [https://github.com/phpseclib](https://github.com/phpseclib)
 - Licensed: MIT
 - Copyright 2011-2019 TerraFrost and other contributors
+
+### [InAcademia](https://inacademia.org/) is a GÉANT service
+* [Contact](https://inacademia.org/plugin-support/)
+* [Privacy Statement](https://inacademia.org/privacy-statement/)
