@@ -84,8 +84,8 @@ Copyright (c) 2023-2024 GÉANT Association on behalf of the GN5-1 project
 
 ## Dependencies
 
-Dependency openid-connect-php-v1.0.0
-- Version: v1.0.0
+Dependency openid-connect-php-v1.0.2
+- Version: v1.0.2
 - URL: [https://github.com/jumbojett/openid-connect-php](https://github.com/jumbojett/openid-connect-php)
 - Licence: Apache 2.0
 - Copyright MITRE 2020
@@ -102,8 +102,8 @@ Dependency paragonie/random_compat-v9.99.100
 - Licensed: MIT
 - Copyright 2015 Paragon Initiative Enterprises
 
-Dependency phpseclib-3.0.41
-- Version: 3.0.41
+Dependency phpseclib-3.0.42
+- Version: 3.0.42
 - URL: [https://github.com/phpseclib](https://github.com/phpseclib)
 - Licensed: MIT
 - Copyright 2011-2019 TerraFrost and other contributors

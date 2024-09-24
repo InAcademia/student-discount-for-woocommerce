@@ -3,7 +3,7 @@
         'name' => 'martin/wc-inacademia',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '36bda42f018891f3d8460dac9a274a5c90c77c16',
+        'reference' => 'a08a2b1e419a2b0d1ddbcd3cd756fc4c53dd9327',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'jumbojett/openid-connect-php' => array(
-            'pretty_version' => 'v1.0.0',
-            'version' => '1.0.0.0',
-            'reference' => '4af1d11497ec765dccddf928c14c04535ca96017',
+            'pretty_version' => 'v1.0.2',
+            'version' => '1.0.2.0',
+            'reference' => 'f327e7eb0626d55ddb6abc7b7c9e6ad3af4e5d51',
             'type' => 'library',
             'install_path' => __DIR__ . '/../jumbojett/openid-connect-php',
             'aliases' => array(),
@@ -22,7 +22,7 @@
         'martin/wc-inacademia' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '36bda42f018891f3d8460dac9a274a5c90c77c16',
+            'reference' => 'a08a2b1e419a2b0d1ddbcd3cd756fc4c53dd9327',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -47,9 +47,9 @@
             'dev_requirement' => false,
         ),
         'phpseclib/phpseclib' => array(
-            'pretty_version' => '3.0.41',
-            'version' => '3.0.41.0',
-            'reference' => '621c73f7dcb310b61de34d1da4c4204e8ace6ceb',
+            'pretty_version' => '3.0.42',
+            'version' => '3.0.42.0',
+            'reference' => 'db92f1b1987b12b13f248fe76c3a52cadb67bb98',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpseclib/phpseclib',
             'aliases' => array(),
