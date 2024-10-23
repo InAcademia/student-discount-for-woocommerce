@@ -39,12 +39,6 @@ The Student Discount for WooCommerce plugin is free to download and comes with a
 |![EU-Funded Logo](https://wiki.geant.org/download/attachments/725614690/image-2024-1-8_18-16-12.png)<br>GN5-1 project is funded from the Horizon Europe research and innovation programme under Grant Agreement No. 101100680 (GN5-1)|
 |:-|
 
-## Installation
-
-Clone this repo in an existing WordPress + WooCommerce installation under ```wp-content/plugins/```
-
-Enable the plugin in WP admin console
-
 ## Getting started
 
 ### Step one: configure the discount to be applied
