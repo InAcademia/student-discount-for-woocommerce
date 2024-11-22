@@ -16,6 +16,8 @@ License: GPLv3 or later
 
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
+[youtube https://www.youtube.com/watch?v=wV5WSYthuKk]
+
 Provides access to an online student validation service, using WooCommerce Coupons to apply a defined discount at the cart for qualifying customers.
 
 ## wc-inacademia
