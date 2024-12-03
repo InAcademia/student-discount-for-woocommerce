@@ -10,7 +10,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Provides access to a student validation service, using WooCommerce Coupons to apply a discount at the cart for qualifying customers.
 
-== wc-inacademia ==
+== Introduction ==
 [youtube https://www.youtube.com/watch?v=wV5WSYthuKk]
 
 Licensed under GPL 3.0 or later.
@@ -28,25 +28,25 @@ The Student Discount for WooCommerce plugin is free to download and comes with a
 \* At institutions that have joined an academic identity federation that is a member of the [eduGAIN](https://edugain.org) interfederation.
 
 == Funding ==
-|![EU-Funded Logo](https://wiki.geant.org/download/attachments/725614690/image-2024-1-8_18-16-12.png)<br>GN5-1 project is funded from the Horizon Europe research and innovation programme under Grant Agreement No. 101100680 (GN5-1)|
-|:-|
+![EU-Funded Logo](https://wiki.geant.org/download/attachments/725614690/image-2024-1-8_18-16-12.png)
+GN5-1 project is funded from the Horizon Europe research and innovation programme under Grant Agreement No. 101100680 (GN5-1)
 
 == Getting started ==
-= Step one: configure the discount to be applied =
+**Step one: configure the discount to be applied**
 Set up your discount using the Coupon feature offered by the [WooCommerce Marketing feature set](https://woocommerce.com/document/coupon-management/) by creating an appropriately named coupon that defines the extent of the discount that you wish to offer and enter the coupon name in the box labelled 'Coupon'. If you wish to change the Coupon you will need to overwrite the data with the new Coupon Code in the field labelled 'Coupon'.
 
-= Step two: set up your subscription and make it unique to the plugin in your shop =
+**Step two: set up your subscription and make it unique to the plugin in your shop**
 You will need to visit [https://inacademia.org/shop](https://inacademia.org/shop) to complete your subscription to the InAcademia Service in order to receive a unique client_id and client_secret, and it is necessary to link your subscription with the plugin in two stages before the I'm a Student button will be available for users to interact with. When you install the plugin, a unique redirect_uri is created on the Setting tab. This value must be entered when prompted, when processing your subscription order.
 
-= Step three: link your subscription to the plugin =
+**Step three: link your subscription to the plugin**
 Your client_id and client_secret will automatically be created during the Subscription order process. You will find them in the Subscription Details of the 'My Account' section of your WooCommerce account; they are both vital terms that are required for the proper-functioning of the service and will be transmitted to the InAcademia service with each user's validation request. You must paste them to the correct boxes in the Settings tab.
 
-= Step four: activate your service =
+**Step four: activate your service**
 When you have created your discount coupon, linked your redirect_uri to your subscription, and linked the client_id and client_secret to the plugin, you will need to decide how you would like to invite users to validate their academic affiliation, either by using a Notice URL or by hitting the 'I'm a Student' button.
 
 It's allowable to use either or both, but please be aware that if you check either box, either the 'I'm a Student' button or 'I'm a Student' notice will be enabled on your shopping cart. Ensure that your subscription is complete and active before hitting 'Save Settings'.
 
-= License =
+== License ==
 This software is licensed under the GPLv3 or later. For more details, see the full [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) license.
 
 == Contact ==
@@ -88,6 +88,6 @@ Dependency phpseclib-3.0.42
 - Licensed: MIT
 - Copyright 2011-2019 TerraFrost and other contributors
 
-= [InAcademia](https://inacademia.org/) is a GÉANT service =
-* [Contact](https://inacademia.org/plugin-support/)
-* [Privacy Statement](https://inacademia.org/privacy-statement/)
+[InAcademia](https://inacademia.org/) is a GÉANT service
+[Contact](https://inacademia.org/plugin-support/)
+[Privacy Statement](https://inacademia.org/privacy-statement/)
