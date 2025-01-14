@@ -2,8 +2,8 @@
 Contributors: mrvanes, michellewilliamsgeant
 Tags: inacademia, student validation, student discount, student, discount
 Requires at least: 6.0
-Tested up to: 6.6
-Stable tag: 1.0
+Tested up to: 6.7
+Stable tag: 1.0.1
 Requires PHP: 8.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -60,6 +60,11 @@ Copyright (c) 2023-2024 GÉANT Association on behalf of the GN5-1 project
 [https://github.com/InAcademia/student-discount-for-woocommerce/blob/main/COPYRIGHT](https://github.com/InAcademia/student-discount-for-woocommerce/blob/main/COPYRIGHT)
 
 == Changelog ==
+= 1.0.1 =
+- Provides human-friendly error descriptions when cart discount cannot be applied
+- Tested against WordPress 6.7.1
+- Tested against WooCommerce 9.5.2
+
 = 1.0 =
 * First release
 
@@ -82,8 +87,8 @@ Dependency paragonie/random_compat-v9.99.100
 - Licensed: MIT
 - Copyright 2015 Paragon Initiative Enterprises
 
-Dependency phpseclib-3.0.42
-- Version: 3.0.42
+Dependency phpseclib-3.0.43
+- Version: 3.0.43
 - URL: [https://github.com/phpseclib](https://github.com/phpseclib)
 - Licensed: MIT
 - Copyright 2011-2019 TerraFrost and other contributors

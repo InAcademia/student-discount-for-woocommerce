@@ -1,4 +1,8 @@
 *** Student Discount for WooCommerce Changelog ***
+2025-01-14 - 1.0.1
+* Provides human-friendly error descriptions when cart discount cannot be applied
+* Tested against WordPress 6.7.1
+* Tested against WooCommerce 9.5.2
 
 2024-08-14 - version 1.0
 * First release.

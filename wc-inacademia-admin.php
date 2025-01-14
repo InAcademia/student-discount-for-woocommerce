@@ -225,7 +225,7 @@ function inacademia_sanitize_options( $options ) {
 			$wrong_client_secret = true;
 		}
 		if ( $wrong_client_secret ) {
-			add_settings_error( 'inacademia', 'inacademia_message', 'ClientID must match the Client Secret allocated by your subscription', 'error' );
+			add_settings_error( 'inacademia', 'inacademia_message', 'ClientSecret must match the Client Secret allocated by your subscription', 'error' );
 			unset( $options['client_secret'] );
 		}
 	}

@@ -106,7 +106,7 @@ function inacademia_validate() {
 			}
 		}
 	} catch ( Exception $e ) {
-		$_SESSION['inacademia_error'] = $e->getMessage();
+		$_SESSION['inacademia_error'] = tr( $e->getMessage() );
 		error_log( json_encode( $e->getMessage(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES ) );
 	}
 
@@ -117,4 +117,19 @@ function inacademia_validate() {
 		unset( $_SESSION['inacademia_referrer'] );
 		header( 'Location: ' . $location, true );
 	}
+}
+
+/**
+ * Translate known error messages
+ *
+ * @param string $s string.
+ */
+function tr( $s ) {
+	$translations = array(
+		'Error: access_denied Description: no affiliation available for this user' => 'We were unable to process your student validation because the SAML response from your institution does not confirm your student affiliation. As a result, the cart discount cannot be applied.',
+		'Error: access_denied Description: affiliation does not match requested validation' => 'We were unable to process your student validation because the SAML response from your institution does not confirm your student affiliation. As a result, the cart discount cannot be applied.',
+		'Error: access_denied Description: authentication failed' => 'We were unable to process your student validation because the SAML response from your institution does not confirm your student affiliation. As a result, the cart discount cannot be applied.',
+	);
+
+	return $translations[ $s ] ?? $s;
 }
