@@ -23,7 +23,7 @@ The Student Discount for WooCommerce plugin adds an ‘I’m a Student’ button
 
 The whole validation process takes seconds and is based on the trusted [eduGAIN](https://edugain.org) academic federated identity infrastructure.
 
-The Student Discount for WooCommerce plugin is free to download and comes with a 14-day free trial for access to the InAcademia service. Continued use after the trial will require a subscription with InAcademia at a cost of €250 per month which will entitle you to up to 1000 validations per month.
+The Student Discount for WooCommerce plugin is free to download and comes with a 14-day free trial for access to the InAcademia service. Continued use after the trial will require a subscription with InAcademia, where a small monthly fee will entitle you to up to 100, 500 or 1000 student validations per month. For more information about our packages, please visit https://inacademia.org/shop/.
 
 \* At institutions that have joined an academic identity federation that is a member of the [eduGAIN](https://edugain.org) interfederation.
 
