@@ -1,4 +1,7 @@
 *** Student Discount for WooCommerce Changelog ***
+2025-09-05 - 1.0.2
+* Enable TLS verification
+
 2025-01-14 - 1.0.1
 * Provides human-friendly error descriptions when cart discount cannot be applied
 * Tested against WordPress 6.7.1

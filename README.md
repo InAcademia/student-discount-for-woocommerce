@@ -3,7 +3,7 @@ Contributors: mrvanes, michellewilliamsgeant
 Tags: inacademia, student validation, student discount, student, discount
 Requires at least: 6.0
 Tested up to: 6.7
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Requires PHP: 8.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -60,6 +60,9 @@ Copyright (c) 2023-2024 GÉANT Association on behalf of the GN5-1 project
 [https://github.com/InAcademia/student-discount-for-woocommerce/blob/main/COPYRIGHT](https://github.com/InAcademia/student-discount-for-woocommerce/blob/main/COPYRIGHT)
 
 == Changelog ==
+= 1.0.2 =
+- Enable TLS verification
+
 = 1.0.1 =
 - Provides human-friendly error descriptions when cart discount cannot be applied
 - Tested against WordPress 6.7.1

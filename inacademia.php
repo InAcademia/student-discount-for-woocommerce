@@ -73,10 +73,13 @@ function inacademia_validate() {
 
 	$oidc = new OpenIDConnectClient( $op_url, $client_id, $client_secret );
 
-	// For debug purposes on local dev.
-	$oidc->setVerifyHost( false );
-	$oidc->setVerifyPeer( false );
-	$oidc->setHttpUpgradeInsecureRequests( false );
+	/*
+	 * Bikeshed
+	 * For debug purposes on local dev.
+	// $oidc->setVerifyHost( false );
+	// $oidc->setVerifyPeer( false );
+	// $oidc->setHttpUpgradeInsecureRequests( false );
+	*/
 
 	$oidc->addScope( explode( ' ', 'transient ' . $scope ) );
 
