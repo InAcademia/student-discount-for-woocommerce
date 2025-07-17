@@ -2,7 +2,7 @@
 Contributors: mrvanes, michellewilliamsgeant
 Tags: inacademia, student validation, student discount, student, discount
 Requires at least: 6.0
-Tested up to: 6.7
+Tested up to: 6.8.1
 Stable tag: 1.0.3
 Requires PHP: 8.0
 License: GPLv3 or later
@@ -62,6 +62,8 @@ Copyright (c) 2023-2024 GÉANT Association on behalf of the GN5-1 project
 == Changelog ==
 = 1.0.3 =
 - Bump phpseclib
+- Tested against WordPress 6.8.1
+- Tested against WooCommerce 10.0.2
 
 = 1.0.2 =
 - Enable TLS verification

@@ -1,6 +1,8 @@
 *** Student Discount for WooCommerce Changelog ***
 2025-07-15 - 1.0.3
 * Bump phpseclib
+* Tested against WordPress 6.8.1
+* Tested against WooCommerce 10.0.2
 
 2025-05-09 - 1.0.2
 * Enable TLS verification
