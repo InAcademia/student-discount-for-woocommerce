@@ -1,4 +1,7 @@
 *** Student Discount for WooCommerce Changelog ***
+2025-10-01 - 1.0.4
+* Bump constant_time_encoding
+
 2025-07-15 - 1.0.3
 * Bump phpseclib
 * Tested against WordPress 6.8.1

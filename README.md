@@ -3,7 +3,7 @@ Contributors: mrvanes, michellewilliamsgeant
 Tags: inacademia, student validation, student discount, student, discount
 Requires at least: 6.0
 Tested up to: 6.8.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 Requires PHP: 8.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -60,6 +60,9 @@ Copyright (c) 2023-2024 GÉANT Association on behalf of the GN5-1 project
 [https://github.com/InAcademia/student-discount-for-woocommerce/blob/main/COPYRIGHT](https://github.com/InAcademia/student-discount-for-woocommerce/blob/main/COPYRIGHT)
 
 == Changelog ==
+= 1.0.4 =
+- Bump constant_time_encoding
+
 = 1.0.3 =
 - Bump phpseclib
 - Tested against WordPress 6.8.1
@@ -83,8 +86,8 @@ Dependency openid-connect-php-v1.0.2
 - Licence: Apache 2.0
 - Copyright MITRE 2020
 
-Dependency paragonie/constant_time_encoding-v3.0.0
-- Version: v3.0.0
+Dependency paragonie/constant_time_encoding-v3.1.3
+- Version: v3.1.3
 - URL:   [https://github.com/paragonie/constant_time_encoding.git](https://github.com/paragonie/constant_time_encoding.git)
 - Licensed: MIT
 - Copyright 2014 Steve Thomas, Copyright 2016-2022 Paragon Initiative Enterprises
