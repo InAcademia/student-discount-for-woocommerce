@@ -3,7 +3,7 @@ Contributors: mrvanes, michellewilliamsgeant
 Tags: inacademia, student validation, student discount, student, discount
 Requires at least: 6.0
 Tested up to: 6.8.1
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 Requires PHP: 8.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -60,6 +60,11 @@ Copyright (c) 2023-2024 GÉANT Association on behalf of the GN5-1 project
 [https://github.com/InAcademia/student-discount-for-woocommerce/blob/main/COPYRIGHT](https://github.com/InAcademia/student-discount-for-woocommerce/blob/main/COPYRIGHT)
 
 == Changelog ==
+= 1.0.5 =
+- Bump phpseclib
+- Tested against WordPress 6.8.3
+- Tested against WooCommerce 10.2.2
+
 = 1.0.4 =
 - Bump constant_time_encoding
 
@@ -98,8 +103,8 @@ Dependency paragonie/random_compat-v9.99.100
 - Licensed: MIT
 - Copyright 2015 Paragon Initiative Enterprises
 
-Dependency phpseclib-3.0.46
-- Version: 3.0.46
+Dependency phpseclib-3.0.47
+- Version: 3.0.47
 - URL: [https://github.com/phpseclib](https://github.com/phpseclib)
 - Licensed: MIT
 - Copyright 2011-2019 TerraFrost and other contributors
