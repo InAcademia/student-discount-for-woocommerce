@@ -61,6 +61,7 @@ Copyright (c) 2023-2024 GÉANT Association on behalf of the GN5-1 project
 
 == Changelog ==
 = 1.0.5 =
+- Improve Location header handling
 - Bump phpseclib
 - Tested against WordPress 6.8.3
 - Tested against WooCommerce 10.2.2

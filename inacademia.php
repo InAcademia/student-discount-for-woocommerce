@@ -119,6 +119,7 @@ function inacademia_validate() {
 		$location = filter_var( $_SESSION['inacademia_referrer'], FILTER_SANITIZE_URL );
 		unset( $_SESSION['inacademia_referrer'] );
 		header( 'Location: ' . $location, true );
+		exit();
 	}
 }
 
